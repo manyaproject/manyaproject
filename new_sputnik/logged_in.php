@@ -1,6 +1,7 @@
 <?php
 //error_reporting(E_ALL);
 session_start();
+header("Content-Type: text/html; charset=UTF-8");
 if($_SERVER['REQUEST_METHOD'] == "GET")
 {
 	if(!isset($_GET['page']))
@@ -11,12 +12,14 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
 
 include 'config.inc';
 if(isset($_GET['id_travel']))
-{	mysql_connect(DB_HOST, DB_USER, DB_PASS);
+{
+	mysql_connect(DB_HOST, DB_USER, DB_PASS);
 	mysql_select_db(DB_NAME);
 	mysql_query("SET NAMES cp1251");
 	mysql_query("insert into travel_subs(id_travel, id_user) values('". $_GET['id_travel'] ."', '". $_SESSION['id'] ."')") or die(mysql_error());
 	mysql_close();
-	header("Location: logged_in.php?&page=1");}
+	header("Location: logged_in.php?&page=1");
+}
 if(isset($_GET['del_travel']))
 {
 	mysql_connect(DB_HOST, DB_USER, DB_PASS);
@@ -27,8 +30,10 @@ if(isset($_GET['del_travel']))
 	header("Location: logged_in.php?&page=1");
 }
 if($_SESSION['user'] == '')
-{	echo "Вы не имеете доступа к этой странице. Пожалуйста, зарегистрируйтесь или зайдите в свой аккаунт!!!<br/> <a href='login.php'>зайти в свой аккаунт</a>";
-	exit;}
+{
+	echo "СЂРїР»РІРѕСЂРїР»РІСЂР°Р»РїСЂРІР»Р°СЂРїР»РІР°СЂР»РїСЂ!<br/> <a href='login.php'>Г§Г Г©ГІГЁ Гў Г±ГўГ®Г© Г ГЄГЄГ ГіГ­ГІ</a>";
+	exit;
+}
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$message = $_POST["message"];
@@ -46,26 +51,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	exit;
 }
 if(isset($_GET['id']))
-{	mysql_connect(DB_HOST, DB_USER, DB_PASS);
+{
+	mysql_connect(DB_HOST, DB_USER, DB_PASS);
 	mysql_select_db(DB_NAME);
 	mysql_query("SET NAMES cp1251");
 	$sql = "update forum set deleted=1 where id='". $_GET['id'] ."'";
-	mysql_query($sql) or die(mysql_error());}
+	mysql_query($sql) or die(mysql_error());
+}
 if(isset($_GET['user']))
 {
 	$user = explode('_', $_GET['user']);
 	if($user[1] === 'activate')
-	{		mysql_connect(DB_HOST, DB_USER, DB_PASS);
+	{
+		mysql_connect(DB_HOST, DB_USER, DB_PASS);
 		mysql_select_db(DB_NAME);
 		mysql_query("SET NAMES cp1251");
 		$sql = "update subscriber set active=1 where user='". $user[0] ."'";
 		mysql_query($sql) or die(mysql_error());
-		mysql_close();	}
+		mysql_close();
+	}
 	else
 	{
 		if($user[0] == "Administrator")
-		{			echo "Вы не можете удалить пользователя Administrator так как это может привести к некорректной работе системы!!!";
-			return 1;		}
+		{
+			echo "Г‚Г» Г­ГҐ Г¬Г®Г¦ГҐГІГҐ ГіГ¤Г Г«ГЁГІГј ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гї Administrator ГІГ ГЄ ГЄГ ГЄ ГЅГІГ® Г¬Г®Г¦ГҐГІ ГЇГ°ГЁГўГҐГ±ГІГЁ ГЄ Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г®Г© Г°Г ГЎГ®ГІГҐ Г±ГЁГ±ГІГҐГ¬Г»!!!";
+			return 1;
+		}
 		mysql_connect(DB_HOST, DB_USER, DB_PASS);
 		mysql_select_db(DB_NAME);
 		mysql_query("SET NAMES cp1251");
@@ -76,16 +87,34 @@ if(isset($_GET['user']))
 }
 ?>
 <html>
-
 <head>
-  <title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Spuntik-РіРѕР»РѕРІРЅР°</title>
+<link href="css/style.css" type="text/css" rel="stylesheet">
+<script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
+<script src="js/equalHeight.js" type="text/javascript"> </script>
 </head>
-
 <body>
-<p>Вы зашли под пользователём <?=$_SESSION['user']?></p>
+	<div id="main">
+       <div id="head"> 
+           <p class="forum"><a href="logged_in.php"></a></p>
+       </div>
+           
+       <div id="nov">
+       </div>
+            
+       <div id="kontext">
+       		
+             <div id="login">
+				<?php include "login.php"; ?>
+            </div>
+            
+            <div id="kontext1" >
+<p>Г‚Г» Г§Г ГёГ«ГЁ ГЇГ®Г¤ ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ВёГ¬ <?=$_SESSION['user']?></p>
 <?php
 if($_SESSION['user'] !== 'Administrator')
-{	mysql_connect(DB_HOST, DB_USER, DB_PASS);
+{
+	mysql_connect(DB_HOST, DB_USER, DB_PASS);
 	mysql_select_db(DB_NAME);
 	mysql_query("SET NAMES cp1251");
 	$year = mktime(0, 0, 0, 0, 0, date("Y"));
@@ -95,34 +124,36 @@ if($_SESSION['user'] !== 'Administrator')
 	$check = 0;
 	while($usersTravel = mysql_fetch_assoc($sqlUsersTravel))
 	{
-	    //echo "id_travel=". $usersTravel['id_travel'];		if(isset($usersTravel['id_travel']))
+	    //echo "id_travel=". $usersTravel['id_travel'];
+		if(isset($usersTravel['id_travel']))
 		{
 			$check = 1;
 			date('F j, Y, H:i:s', $chatList['date']);
-			echo "У Вас есть забронированное место заезде №". $usersTravel['id_travel'] ."<br/> заезд начинается ". date('F j, Y', $usersTravel['check_in']) ." и заканчивается ". date('F j, Y', $usersTravel['check_out']);
-			echo "<br /><a href=logged_in.php?page=1&del_travel=". $usersTravel['id_travel'] .">Убрать себя из этого заезда</a><br />";
+			echo "Г“ Г‚Г Г± ГҐГ±ГІГј Г§Г ГЎГ°Г®Г­ГЁГ°Г®ГўГ Г­Г­Г®ГҐ Г¬ГҐГ±ГІГ® Г§Г ГҐГ§Г¤ГҐ В№". $usersTravel['id_travel'] ."<br/> Г§Г ГҐГ§Г¤ Г­Г Г·ГЁГ­Г ГҐГІГ±Гї ". date('F j, Y', $usersTravel['check_in']) ." ГЁ Г§Г ГЄГ Г­Г·ГЁГўГ ГҐГІГ±Гї ". date('F j, Y', $usersTravel['check_out']);
+			echo "<br /><a href=logged_in.php?page=1&del_travel=". $usersTravel['id_travel'] .">Г“ГЎГ°Г ГІГј Г±ГҐГЎГї ГЁГ§ ГЅГІГ®ГЈГ® Г§Г ГҐГ§Г¤Г </a><br />";
 		}
-		//else echo "<br/><a href='showTravels.php'>Посмотреть доступные заезды</a><br />";	}
+		//else echo "<br/><a href='showTravels.php'>ГЏГ®Г±Г¬Г®ГІГ°ГҐГІГј Г¤Г®Г±ГІГіГЇГ­Г»ГҐ Г§Г ГҐГ§Г¤Г»</a><br />";
+	}
 	if($check == 0)
-		echo "<br/><a href='showTravels.php'>Посмотреть доступные заезды</a><br />";
+		echo "<br/><a href='showTravels.php'>ГЏГ®Г±Г¬Г®ГІГ°ГҐГІГј Г¤Г®Г±ГІГіГЇГ­Г»ГҐ Г§Г ГҐГ§Г¤Г»</a><br />";
 mysql_close();
 
 }
 
-echo "<a href='exit.php'>выйти</a>";
+echo "<a href='exit.php'>ГўГ»Г©ГІГЁ</a>";
 include_once 'chat.php';
 if($_SESSION['user'] === "Administrator")
 	{
-		echo "<br /><a href='search.php'>Поиск</a>";
-		echo "<br /><a href='addTravel.php'>Добавить заезд</a><br/>";
-		echo "<a href='news.php'>Добавить новость<a/><br/>";
-		echo "Показать <a href='trash.php'>корзину</a> <br/>";
+		echo "<br /><a href='search.php'>ГЏГ®ГЁГ±ГЄ</a>";
+		echo "<br /><a href='addTravel.php'>Г„Г®ГЎГ ГўГЁГІГј Г§Г ГҐГ§Г¤</a><br/>";
+		echo "<a href='news.php'>Г„Г®ГЎГ ГўГЁГІГј Г­Г®ГўГ®Г±ГІГј<a/><br/>";
+		echo "ГЏГ®ГЄГ Г§Г ГІГј <a href='trash.php'>ГЄГ®Г°Г§ГЁГ­Гі</a> <br/>";
 	}
 ?>
 <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-<b>Введите ваш комментарий</b><br/>
+<b>Г‚ГўГҐГ¤ГЁГІГҐ ГўГ Гё ГЄГ®Г¬Г¬ГҐГ­ГІГ Г°ГЁГ©</b><br/>
 <textarea cols="30" rows="8" name="message"></textarea><br/>
-<input type="submit" value="добавить">
+<input type="submit" value="Г¤Г®ГЎГ ГўГЁГІГј">
 </form>
 <?php
 if($_SESSION['amountPages'] > 1)
@@ -132,6 +163,17 @@ for($i = 1; $i <= $_SESSION['amountPages']; $i++)
 }
 ?>
 
-</body>
+</div>
+       </div>
+       
+       <div class="clear">
+           <div id="foot">
+           "РЎР°РЅР°С‚РѕСЂС–Р№-РїСЂРѕС„С–Р»Р°РєС‚РѕСЂС–Р№ "РЎСѓРїСѓС‚РЅРёРє" В© 2012&nbsp; | &nbsp;
+           </div>
+       </div>
+     </div>
+  	<!---->
 
+	
+</body>
 </html>
