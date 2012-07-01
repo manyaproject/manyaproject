@@ -1,4 +1,5 @@
-﻿<?php
+<?php
+session_start();
 /*if($_SERVER['REQUEST_METHOD'] == "GET")
 {
 	if(!isset($_GET['page']))
@@ -35,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		exit;
 	}
 	if($sqlUser['active'] == 0)
-	{		
+	{
 		accountDeleted();
 //		echo "��� ������� �����. ���������� ���������� � �������������� �����";
 		exit;
@@ -48,7 +49,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	else
 	{
 		$_SESSION['user'] = $sqlUser['user'];
-		echo $sqlUser['user'];
 		$_SESSION['id'] = $sqlUser['id'];
 		echo "sqlUser = ". $sqlUser['id'] ."<br />";
 		echo "session = ". $_SESSION['id'] ."<br />";

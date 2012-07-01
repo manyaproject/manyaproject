@@ -1,5 +1,26 @@
 <?php
 header("Content-Type: text/html; charset=UTF-8");
+require_once 'config.inc';
+mysql_connect(DB_HOST, DB_USER, DB_PASS);
+mysql_select_db(DB_NAME);
+mysql_query("SET NAMES cp1251");
+require_once 'paging.php';
+$newsListQuery = mysql_query("select * from news") or die(mysql_error());
+while($newsList = mysql_fetch_assoc($newsListQuery))
+{
+	if($chatList['deleted'] == 1) continue;
+?>
+<hr/>
+<p>Дата написания поста: <?=date('F j, Y, H:i:s', $newsList['date'])?></p>
+<?php
+if($_SESSION['user'] === "Administrator") echo "<a href='logged_in.php?&id=". $newsList['id'] ."'>удалить сообщение</a><br/>";
+?>
+
+
+<p>Сообщение: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <?=$newsList['title']?> </p>
+<?php
+}
+mysql_close();
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,37 +32,38 @@ header("Content-Type: text/html; charset=UTF-8");
 </head>
 <body>
 	<div id="main">
-       <div id="head"> 
+       <div id="head">
        </div>
-           
+        <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+Введите краткое описание: <input type="text" name="title">
+Введите сообщение: <textarea cols="30" rows="8" name="message"></textarea><br/>
+<input type="submit" value="добавить">
+</form>
        <div id="nov">
        </div>
-            
+
        <div id="kontext">
-       		
+
              <div id="login">
 
             </div>
-            
+
             <div id="kontext1" >
-                <p>Ви хотіли б відпочити на  престижному курорті, смачно поїсти, поніжитися в морських хвилях, та розім'яти  втомлені м'язи? Для цього не потрібно їхати за кордон та витрачати великі  гроші. Ваш найкращий курорт поруч – це <b><i>санаторій-профілакторій «Супутник» ВНТУ</i></b>,  що розташований в третьому гуртожитку, вул. В. Інтернаціоналістів 11/102.<br></p>
-             <p> Санаторій-профілакторій  нараховує 50 койко-місць та на протязі 30 років гостинно відчиняє двері в світ  природних методів профілактики та лікування.<br></p>
-             <p> Великий наш земляк М.І.  Пирогов зазначив: «Майбутнє належить медицині профілактичній.». Сьогодні це  крилате висловлювання втілене в роботі санаторію-профілакторію «Супутник», де  на Вас чекають професійні фахівці та сучасні методи оздоровлення.<br></p>
-             <p> У здравниці є їдальня,  фізіотерапевтичне та бальнеологічне відділення, кабінети масажу, лікувальної  фізкультури та стоматологічний кабінет.<br></p>
-             <p> Найважливіша запорука міцного  здоров'я – регулярне та збалансоване харчування. Триразове харчування, до  складу якого щодня входить натуральне м'ясо, риба, птиця, молочні вироби, свіжі  овочі та фрукти, смачні запіканки та тістечка, надасть Вам сил та наснаги.<br></p>
-            </p> <p>І після всього почутого Ви ще  думаєте? Сумніви геть! Час оформляти путівку в санаторій-профілакторій. Покваптесь,  а то можете не встигнути. Тим більше, що така можливість у Вас всього одна на  календарний рік.</p></p>
+
+
+
             </div>
-            
-           
+
+
        </div>
-       
+
        <div id="foot">
        "Санаторій-профілакторій "Супутник" © 2012&nbsp; | &nbsp;Федорова Марія
        </div>
-       
+
      </div>
   	<!---->
 
-	
+
 </body>
 </html>
