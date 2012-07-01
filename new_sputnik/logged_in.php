@@ -31,7 +31,7 @@ if(isset($_GET['del_travel']))
 }
 if($_SESSION['user'] == '')
 {
-	echo "рплворплвралпрвларплварлпр!<br/> <a href='login.php'>çàéòè â ñâîé àêêàóíò</a>";
+	echo "Олег!<br/> <a href='login.php'>çàéòè â ñâîé àêêàóíò</a>";
 	exit;
 }
 if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -96,19 +96,19 @@ if(isset($_GET['user']))
 </head>
 <body>
 	<div id="main">
-       <div id="head"> 
+       <div id="head">
            <p class="forum"><a href="logged_in.php"></a></p>
        </div>
-           
+
        <div id="nov">
        </div>
-            
+
        <div id="kontext">
-       		
+
              <div id="login">
 				<?php include "login.php"; ?>
             </div>
-            
+
             <div id="kontext1" >
 <p>Âû çàøëè ïîä ïîëüçîâàòåë¸ì <?=$_SESSION['user']?></p>
 <?php
@@ -165,7 +165,7 @@ for($i = 1; $i <= $_SESSION['amountPages']; $i++)
 
 </div>
        </div>
-       
+
        <div class="clear">
            <div id="foot">
            "Санаторій-профілакторій "Супутник" © 2012&nbsp; | &nbsp;
@@ -174,6 +174,6 @@ for($i = 1; $i <= $_SESSION['amountPages']; $i++)
      </div>
   	<!---->
 
-	
+
 </body>
 </html>
