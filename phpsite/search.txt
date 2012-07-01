@@ -1,0 +1,83 @@
+//<tr>
+//<td>Выбрать по заезду</td>
+//<td>
+//<?php
+//mysql_connect(DB_HOST, DB_USER, DB_PASS);
+//mysql_select_db(DB_NAME);
+//mysql_query("SET NAMES cp1251");
+//$query = mysql_query("select id, check_in, check_out from travel where active=0");
+//echo "<select name='travel'>";
+//echo "<option>выберите заезд</option>";
+//while($result = mysql_fetch_assoc($query))
+//{
+//	$checkIn = date('m.d.Y', $result['check_in']);
+//	$checkOut = date('m.d.Y', $result['check_out']);
+//?>
+<!--<option><?php echo $result['id'] .'  ('. $checkIn .' - '. $checkOut .')';?></option>-->
+//<?php
+//}
+//echo "</select>";
+//mysql_close();
+//?>
+//</td>
+//</tr>
+
+
+
+logged_in
+if(isset($_SESSION['user']) and $_SESSION['user'] !== 'Administrator')
+{
+	mysql_connect(DB_HOST, DB_USER, DB_PASS);
+	mysql_select_db(DB_NAME);
+	mysql_query("SET NAMES cp1251");
+	$year = mktime(0, 0, 0, 0, 0, date("Y"));
+//	echo "year = ". $year ."<br/>";
+//	echo $_SESSION['id'];
+	$sqlUsersTravel = mysql_query("select t1.id_travel, t2.check_in, t2.check_out from travel_subs as t1 join travel as t2 on t1.id_travel=t2.id where t1.id_user=". $_SESSION['id'] ." and t2.check_in>$year") or die(mysql_error());
+//	var_dump($sqlUsersTravel);
+	
+	$check = 0;
+	while($usersTravel = mysql_fetch_assoc($sqlUsersTravel))
+	{
+	    //echo "id_travel=". $usersTravel['id_travel'];
+		if(isset($usersTravel['id_travel']))
+		{
+			$check = 1;
+			date('F j, Y, H:i:s', $chatList['date']);
+			echo "У вас заброньоване місце у заїзді №". $usersTravel['id_travel'] ."<br/> заїзд розпочинається ". date('F j, Y', $usersTravel['check_in']) ." та завершується ". date('F j, Y', $usersTravel['check_out']);
+			echo "<br /><a href=logged_in.php?page=1&del_travel=". $usersTravel['id_travel'] .">Видалити себе з даного заїзду</a><br />";
+		}
+		//else echo "<br/><a href='showTravels.php'>Посмотреть доступные заезды</a><br />";
+	}
+	if($check == 0)
+		echo "<br/><a href='showTravels.php'>Продивитись доступні заїзди</a><br />";
+mysql_close();
+
+}
+
+
+
+
+
+
+
+register
+
+<?php
+mysql_connect(DB_HOST, DB_USER, DB_PASS);
+mysql_select_db(DB_NAME);
+mysql_query("SET NAMES cp1251");
+//$query = mysql_query("select id, check_in, check_out, counter from travel where active=0");
+echo "<select name='travel'>";
+while($res = mysql_fetch_assoc($query))
+{
+	$checkIn = date('m.d.Y', $res['check_in']);
+	$checkOut = date('m.d.Y', $res['check_out']);
+	$counter = TRAVEL_COUNTER - $res['counter'];
+?>
+<option><?php echo $res['id'] .'  ('. $checkIn .' - '. $checkOut .') вільних місць:'. $counter;?></option>
+<?php
+}
+echo "</select>";
+mysql_close();
+?>

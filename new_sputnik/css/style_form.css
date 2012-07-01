@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+@import url(style.css);
+
+h1 { 
+	color:#020C30;
+	margin: 0 auto;
+	}
+
+p, legend {
+	font:16px Arial;
+	color:#020C30;
+	margin-top: 5px; 
+	}
+	
+legend {
+	font:12px Arial;
+	font-weight:bold;
+	}
+
+textarea {
+	font:14px Arial;
+	}
+	
+.question {
+	font-weight:bold;
+	}
+
+fieldset {
+	padding:0 10px;
+	border: 1px solid #020C30;
+	margin-top: 10px;
+	background-color: #FEF9EB;
+	}
+
+.input {
+	border: 1px solid #093;
+	height: 27px;
+	font:14px Arial;
+	background-image:url(../images/form.png);
+	background-repeat: repeat-x;
+	line-height: 27px;
+	padding: 0 7px;
+	}
+	
+.input:focus {
+	border: 2px solid ##009933;
+	background:none;
+	background-color:#FFF;
+	}
+
+label {
+	cursor:pointer;
+	font:16px Arial;
+	font-weight:bold;
+	}
