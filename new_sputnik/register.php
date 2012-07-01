@@ -99,7 +99,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 </head>
 <body>
 	<div id="main">
-       <div id="head"> 
+        <div id="head"> 
+           <p class="forum"><a href="logged_in.php"></a></p>
        </div>
            
        <div id="nov">

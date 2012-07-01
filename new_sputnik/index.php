@@ -14,6 +14,7 @@ header("Content-Type: text/html; charset=UTF-8");
 <body>
 	<div id="main">
        <div id="head"> 
+           <p class="forum"><a href="logged_in.php"></a></p>
        </div>
            
        <div id="nov">
@@ -37,7 +38,7 @@ header("Content-Type: text/html; charset=UTF-8");
        
        <div class="clear">
            <div id="foot">
-           "Санаторій-профілакторій "Супутник" © 2012&nbsp; | &nbsp;Федорова Марія
+           "Санаторій-профілакторій "Супутник" © 2012&nbsp; | &nbsp;
            </div>
        </div>
      </div>
