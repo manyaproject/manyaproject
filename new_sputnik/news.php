@@ -34,11 +34,7 @@ mysql_close();
 	<div id="main">
        <div id="head">
        </div>
-        <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-Введите краткое описание: <input type="text" name="title">
-Введите сообщение: <textarea cols="30" rows="8" name="message"></textarea><br/>
-<input type="submit" value="добавить">
-</form>
+
        <div id="nov">
        </div>
 
@@ -50,7 +46,11 @@ mysql_close();
 
             <div id="kontext1" >
 
-
+				 <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+				Введіть коротке повідомлення: <input type="text" name="title">
+				Введіть повідомлення: <textarea cols="30" rows="8" name="message"></textarea><br/>
+				<input type="submit" value="добавить">
+				</form>
 
             </div>
 

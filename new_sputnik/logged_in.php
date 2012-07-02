@@ -31,7 +31,7 @@ if(isset($_GET['del_travel']))
 }
 if($_SESSION['user'] == '')
 {
-	echo "Олег!<br/> <a href='login.php'>çàéòè â ñâîé àêêàóíò</a>";
+	echo "Ви не маєте доступу до даної сторінки! Будь-ласка зареєструйтеся або увійдіть до своєї сторінки<br/> <a href='login.php'>Зайти в свій аккаунт</a>";
 	exit;
 }
 if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -74,7 +74,7 @@ if(isset($_GET['user']))
 	{
 		if($user[0] == "Administrator")
 		{
-			echo "Âû íå ìîæåòå óäàëèòü ïîëüçîâàòåëÿ Administrator òàê êàê ýòî ìîæåò ïðèâåñòè ê íåêîððåêòíîé ðàáîòå ñèñòåìû!!!";
+			echo "Ви не можете видалити користувача адміністратор так як це призведе до неправильної роботи системи!!!";
 			return 1;
 		}
 		mysql_connect(DB_HOST, DB_USER, DB_PASS);
@@ -89,7 +89,7 @@ if(isset($_GET['user']))
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Spuntik-головна</title>
+<title>Spuntik-аккаунт</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
 <script src="js/equalHeight.js" type="text/javascript"> </script>
@@ -110,7 +110,7 @@ if(isset($_GET['user']))
             </div>
 
             <div id="kontext1" >
-<p>Âû çàøëè ïîä ïîëüçîâàòåë¸ì <?=$_SESSION['user']?></p>
+<p>Ви зайшли під користувачем: <?=$_SESSION['user']?></p>
 <?php
 if($_SESSION['user'] !== 'Administrator')
 {
@@ -140,20 +140,20 @@ mysql_close();
 
 }
 
-echo "<a href='exit.php'>âûéòè</a>";
+echo "<a href='exit.php'>вихід</a>";
 include_once 'chat.php';
 if($_SESSION['user'] === "Administrator")
 	{
-		echo "<br /><a href='search.php'>Ïîèñê</a>";
-		echo "<br /><a href='addTravel.php'>Äîáàâèòü çàåçä</a><br/>";
-		echo "<a href='news.php'>Äîáàâèòü íîâîñòü<a/><br/>";
-		echo "Ïîêàçàòü <a href='trash.php'>êîðçèíó</a> <br/>";
+		echo "<br /><a href='search.php'>Пошук</a>";
+		echo "<br /><a href='addTravel.php'>Додати заїзд</a><br/>";
+		echo "<a href='news.php'>Додати новини<a/><br/>";
+		echo "Показати<a href='trash.php'>кошик</a> <br/>";
 	}
 ?>
 <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-<b>Ââåäèòå âàø êîììåíòàðèé</b><br/>
+<b>Введіть ваш коментарій</b><br/>
 <textarea cols="30" rows="8" name="message"></textarea><br/>
-<input type="submit" value="äîáàâèòü">
+<input type="submit" value="Додати">
 </form>
 <?php
 if($_SESSION['amountPages'] > 1)

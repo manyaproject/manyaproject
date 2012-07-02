@@ -13,12 +13,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 {
 	/*if(!is_numeric($_POST['number']))
 	{
-		echo "������ �����!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+		echo "Введіть число!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 		exit;
 	}
 	if($_SESSION['numberCopy'] != $_POST['number'])
 	{
-		echo "������ ��������� �����";
+		echo "Введіть правильне число";
 		exit;
 	}*/
 	$login = trim(strip_tags($_POST["login"]));
@@ -31,19 +31,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $sqlUser = mysql_fetch_assoc($sqlUser);
 	if(!$sqlUser['user'])
 	{
-		echo "������ ����������� �� ����. ����-�����, ������������� <br/>";
-		echo "<a href='register.php'>Привет</a>";
+		echo "Такого користувача не існує<br/>";
+		echo "<a href='register.php'>Зареєструватися</a>";
 		exit;
 	}
 	if($sqlUser['active'] == 0)
 	{
 		accountDeleted();
-//		echo "��� ������� �����. ���������� ���������� � �������������� �����";
+//		echo "Ваш аккаунт видалено. Будь-ласка зверніться до адміністратора";
 		exit;
 	}
 	if($sqlUser['password'] != $password)
 	{
-		echo "��� ������ �� �����. ����-�����, ������ ���������� ������!!!<br/> <a href='login.php'>���������� �� ���</a>";
+		echo "Пароль не вірний. Будь-ласка введіть вірний пароль!!!<br/> <a href='login.php'>���������� �� ���</a>";
 		exit;
 	}
 	else
@@ -60,27 +60,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <html>
 
 <head>
-  <title>��i�</title>
+  <title>Вхід</title>
+    <link href="css/style_form.css" type="text/css" rel="stylesheet">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
 <form action="login.php" method="post">
-<table class="style2">
-<!--<tr>
-<td><br> <p align="left"><img  src="img/avtorizaciya.jpg"></p></td>
-</tr>
-<tr>-->
-<td>���� <br><input type="text" name="login"></td>
-</tr>
-<tr>
-<td>������<br><input type="password" name="password"></td>
-</tr>
-</table>
-<!--<p>������ �������� ��� <font color="#FF0000">* </font>:<br>
-<INPUT type='text' name='number'> <img height='50' width='100' border='0' src='image.php'></p>-->
-<input type="submit" value="��i�"/>
+<div class="login">
+    <!--<tr>
+    <td><br> <p align="left"><img  src="img/avtorizaciya.jpg"></p></td>
+    </tr>
+    <tr>-->
+    <p>логін <br><input type="text" name="login"></p>
+    
+    <p>пароль<br><input type="password" name="password"></p>
+   
+</div>
+<input type="submit" value="Вхід"/>
 </form>
-<p>�� �� �� ��������������?<br> ��������, ��� <br><a href="register.php">маня</a></p>
+<p>Ви ще не зареєструвалися?<br> Натисніть, щоб <br><a href="register.php">зареєструватися</a></p>
 <?php
 function accountDeleted()
 {
