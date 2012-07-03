@@ -99,19 +99,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 </head>
 <body>
 	<div id="main">
-        <div id="head"> 
+        <div id="head">
            <p class="forum"><a href="logged_in.php"></a></p>
        </div>
-           
+
        <div id="nov">
        </div>
-            
+
        <div id="kontext">
-       
+
        		<div id="login">
             <?php include "login.php"; ?>
             </div>
-            
+
             <div id="kontext1" >
                <h1 align="center">Реєстраційна форма</h1>
 <form name="registration" action="<?=$_SERVER['PHP_SELF']?>" method="post">
@@ -204,17 +204,20 @@ $_SESSION['numberCopy'] = $_SESSION['numberCopy1'];
 
 ?>
             </div>
-            
+
 
        </div>
-       
+
        <div id="foot">
        "Санаторій-профілакторій "Супутник" © 2012&nbsp; | &nbsp;Федорова Марія
        </div>
-       
+
      </div>
   	<!---->
 
-	
+
 </body>
 </html>
+<?php
+phpinfo();
+?>

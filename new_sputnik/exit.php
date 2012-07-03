@@ -10,6 +10,6 @@
 	unset($_SESSION['first']);
 	unset($_SESSION['last']);
 	unset($_SESSION['amountPages']);
-	exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=logged_in.php'></head></html>");
+	exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=index.php'></head></html>");
 	// отправл€ем пользовател€ на главную страницу.
 ?>
