@@ -6,6 +6,14 @@ mysql_select_db(DB_NAME);
 mysql_query("SET NAMES cp1251");
 require_once 'paging.php';
 $newsListQuery = mysql_query("select * from news") or die(mysql_error());
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{	$title = $_POST["title"];
+	$message = $_POST["message"];
+	$date = mktime();
+	$sql = "insert into news(title, body, date) values('$title', '$message', $date)";
+	mysql_query($sql) or die(mysql_error());
+	header("Location: ". $_SERVER["PHP_SELF"]);
+	exit;}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -37,7 +45,7 @@ $newsListQuery = mysql_query("select * from news") or die(mysql_error());
 				 <?php
 				 while($newsList = mysql_fetch_assoc($newsListQuery))
 				 {
-					if($chatList['deleted'] != 1) continue;
+					if($chatList['deleted'] == 1) continue;
 				?>
 				<hr/>
 				<p>Дата написання новини: <?=date('F j, Y, H:i:s', $newsList['date'])?></p>
