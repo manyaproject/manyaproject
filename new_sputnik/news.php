@@ -13,6 +13,7 @@ $newsListQuery = mysql_query("select * from news") or die(mysql_error());
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Spuntik-головна</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
+<link href="css/menu.css" type="text/css" rel="stylesheet">
 
 </head>
 <body>
@@ -21,6 +22,7 @@ $newsListQuery = mysql_query("select * from news") or die(mysql_error());
        </div>
 
        <div id="nov">
+       <?php include "menu.php"?>
        </div>
 
        <div id="kontext">

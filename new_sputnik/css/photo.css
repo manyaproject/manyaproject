@@ -1,0 +1,21 @@
+#contentP {
+    width: 984px;
+    height: 698px;
+    background: url(../images/contentBg.png) repeat-y;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 30px 20px 10px 30px;
+}
+
+.photoGallery{
+    float: left;
+    width: 165px;
+    height: 115px;
+    margin: 15px 15px 25px 15px;
+	border: 1px #000000;
+}
+
+.photoGallery p {
+    text-align: center;
+    font: 13px Verdana, sans-serif;
+}

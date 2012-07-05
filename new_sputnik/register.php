@@ -93,8 +93,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Spuntik-реєстрація</title>
-<!--<link href="css/style.css" type="text/css" rel="stylesheet">-->
+<link href="css/style.css" type="text/css" rel="stylesheet">
 <link href="css/style_form.css" type="text/css" rel="stylesheet">
+<link href="css/menu.css" type="text/css" rel="stylesheet">
 
 </head>
 <body>
@@ -104,6 +105,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
        </div>
 
        <div id="nov">
+       <?php include "menu.php"?>
        </div>
 
        <div id="kontext">

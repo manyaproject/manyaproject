@@ -9,6 +9,7 @@ header("Content-Type: text/html; charset=UTF-8");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Spuntik-головна</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
+<link href="css/menu.css" type="text/css" rel="stylesheet">
 <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
 <script src="js/equalHeight.js" type="text/javascript"> </script>
 </head>
@@ -19,6 +20,7 @@ header("Content-Type: text/html; charset=UTF-8");
        </div>
            
        <div id="nov">
+       <?php include "menu.php"?>
        </div>
             
        <div id="kontext">
