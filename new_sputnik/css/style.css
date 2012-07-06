@@ -39,6 +39,11 @@ p {
 #head a:hover { 
   border: 1px solid #020C30; /* рамка контейнера гирерссылки*/ 
 } 
+
+/*#head a:link {
+	background-color:#393;
+}*/
+
 #head .forum a { 
     top:135px; /*позиционирование гиперссылки*/ 
     left: 1070px; /*позиционирование гиперссылки*/ 

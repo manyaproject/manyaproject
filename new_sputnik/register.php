@@ -94,8 +94,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Spuntik-реєстрація</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
-<link href="css/style_form.css" type="text/css" rel="stylesheet">
 <link href="css/menu.css" type="text/css" rel="stylesheet">
+<link href="css/style_form.css" type="text/css" rel="stylesheet">
+
 
 </head>
 <body>
@@ -199,7 +200,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 <p class="question"><label>Введіть число <font color="#FF0000">* </font>:<br>
 <INPUT class="input" type='text' name='number'> </label><img height='50' width='100' border='0' src='image.php'><br><br>
-<input  type="image" src="images/Button.png" name="imageButton"</p>
+<input  type="image" src="images/Button.png" name="imageButton"></p>
 </form>
 <?php
 $_SESSION['numberCopy'] = $_SESSION['numberCopy1'];
