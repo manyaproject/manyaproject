@@ -5,7 +5,19 @@ mysql_connect(DB_HOST, DB_USER, DB_PASS);
 mysql_select_db(DB_NAME);
 mysql_query("SET NAMES cp1251");
 require_once 'paging.php';
-$newsListQuery = mysql_query("select * from news") or die(mysql_error());
+$newsListQuery = mysql_query("select id, title, date, deleted from news") or die(mysql_error());
+if(isset($_GET['deleted']))
+{
+	$sqlQuery = "update news set deleted=1 where id=". $_GET['deleted'];
+	$sqlBody = mysql_query($sqlQuery) or die(mysql_error());
+	//while($news = mysql_fetch_assoc($sqlQuery))
+}
+if(isset($_GET['new']))
+{
+	$sqlQuery = "select id, body from news where id=". $_GET['new'];
+	$sqlBody = mysql_query($sqlQuery) or die(mysql_error());
+	//while($news = mysql_fetch_assoc($sqlQuery))
+}
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {	$title = $_POST["title"];
 	$message = $_POST["message"];
@@ -42,23 +54,32 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             <div id="kontext1" >
 
 
-				 <?php
+				<?php
 				 while($newsList = mysql_fetch_assoc($newsListQuery))
 				 {
-					if($chatList['deleted'] == 1) continue;
+					if($newsList['deleted'] == 1) continue;
 				?>
 				<hr/>
 				<p>Дата написання новини: <?=date('F j, Y, H:i:s', $newsList['date'])?></p>
 				<?php
-					if($_SESSION['user'] === "Administrator") echo "<a href='logged_in.php?&id=". $newsList['id'] ."'>удалить сообщение</a><br/>";
+					if($_SESSION['user'] === "Administrator") echo "<a href='news.php?&deleted=". $newsList['id'] ."'>удалить сообщение</a><br/>";
+				if(isset($sqlQuery) and $newsList['id'] == $_GET['new'])
+				{
+					while($news = mysql_fetch_assoc($sqlBody))
+					{
+				?>	
+					<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <a href="news.php?&title=<?=$news['id']?>"><?=$news['body']?> </a></p>
+				<?php
+					}
+					continue;
+				}
 				?>
-
-
-				<p>Сообщение: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <?=$newsList['title']?> </p>
+					<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <a href="news.php?&new=<?=$newsList['id']?>"><?=$newsList['title']?> </a></p>
 				<?php
 				}
 				mysql_close();
-				 	if($_SESSION['user'] == "Administrator"){
+				 	if($_SESSION['user'] == "Administrator")
+					{
 				?>
 				<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
 				Введіть коротке повідомлення: <input type="text" name="title"><br/>
@@ -66,6 +87,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 				<input type="submit" value="добавить">
 				</form>
 				<?php } ?>
+				
 
             </div>
 

@@ -39,6 +39,11 @@ mysql_connect(DB_HOST, DB_USER, DB_PASS);
 mysql_select_db(DB_NAME);
 mysql_query("SET NAMES cp1251");
 echo "<a href='logged_in.php'>Перейти на головну</a>";
+if(isset($_GET['new']))
+{
+	$sqlNewRestore = "update news set deleted=0 where id=". $_GET['new'];
+	mysql_query($sqlNewRestore) or die(mysql_query());
+}
 if(isset($_GET['user']))
 {
 	$user = explode('_', $_GET['user']);
@@ -97,11 +102,17 @@ if($_SESSION['user'] === "Administrator")
 <p>Ïîâ³äîìëåííÿ: </p><bt/><p style="border: 1px solid blue; width: 240; height: 100"> <?=$chatList['message']?> </p>
 <?php
 }
+$sqlNews = "select id, title from news where deleted=1";
+$sqlTrashedNews = mysql_query($sqlNews) or die(mysql_error());
 mysql_close();
+while($trashedNews = mysql_fetch_assoc($sqlTrashedNews))
+{
 ?>
+<a href="trash.php?&new=<?=$trashedNews['id']?>"><?=$trashedNews['title']?></a>
 
-
-
+<?php
+}
+?>
                 <p>
             </div>
        </div>
