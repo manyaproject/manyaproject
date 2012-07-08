@@ -221,6 +221,3 @@ $_SESSION['numberCopy'] = $_SESSION['numberCopy1'];
 
 </body>
 </html>
-<?php
-phpinfo();
-?>
