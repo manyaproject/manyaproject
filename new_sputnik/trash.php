@@ -14,22 +14,22 @@ header("Content-Type: text/html; charset=UTF-8");
 </head>
 <body>
 	<div id="main">
-       <div id="head"> 
+       <div id="head">
            <p class="forum"><a href="logged_in.php"></a></p>
        </div>
-           
+
        <div id="nov">
-       <?php include "menu.php";?>       
+       <?php include "menu.php";?>
        </div>
-            
+
        <div id="kontext">
-       		
+
              <div id="login">
 				<p></p><?php include "login.php"; ?>
             </div>
-            
+
             <div id="kontext1" >
-<?php 
+<?php
 if($_SESSION['user'] !== "Administrator")
 {
 	echo "Ви не маєте доступу до даної сторінки.<br/> <a href='logged_in.php'>Перейти на головну</a>";
@@ -108,7 +108,7 @@ mysql_close();
 while($trashedNews = mysql_fetch_assoc($sqlTrashedNews))
 {
 ?>
-<a href="trash.php?&new=<?=$trashedNews['id']?>"><?=$trashedNews['title']?></a>
+<br/><a href="trash.php?&new=<?=$trashedNews['id']?>"><?=$trashedNews['title']?></a>
 
 <?php
 }
@@ -116,7 +116,7 @@ while($trashedNews = mysql_fetch_assoc($sqlTrashedNews))
                 <p>
             </div>
        </div>
-       
+
        <div class="clear">
            <div id="foot">
            "Санаторій-профілакторій "Супутник" © 2012&nbsp; | &nbsp;
@@ -125,6 +125,6 @@ while($trashedNews = mysql_fetch_assoc($sqlTrashedNews))
      </div>
   	<!---->
 
-	
+
 </body>
 </html>
