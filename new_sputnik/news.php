@@ -19,13 +19,15 @@ if(isset($_GET['new']))
 	//while($news = mysql_fetch_assoc($sqlQuery))
 }
 if($_SERVER['REQUEST_METHOD'] == "POST")
-{	$title = $_POST["title"];
+{
+	$title = $_POST["title"];
 	$message = $_POST["message"];
 	$date = mktime();
 	$sql = "insert into news(title, body, date) values('$title', '$message', $date)";
 	mysql_query($sql) or die(mysql_error());
 	header("Location: ". $_SERVER["PHP_SELF"]);
-	exit;}
+	exit;
+}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -62,19 +64,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 				<hr/>
 				<p>Дата написання новини: <?=date('F j, Y, H:i:s', $newsList['date'])?></p>
 				<?php
-					if($_SESSION['user'] === "Administrator") echo "<a href='news.php?&deleted=". $newsList['id'] ."'>удалить сообщение</a><br/>";
+					if($_SESSION['user'] === "Administrator") echo "<a href='news.php?&deleted=". $newsList['id'] ."'>Видалити повідомлення</a><br/>";
 				if(isset($sqlQuery) and $newsList['id'] == $_GET['new'])
 				{
 					while($news = mysql_fetch_assoc($sqlBody))
 					{
 				?>	
-					<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <a href="news.php?&title=<?=$news['id']?>"><?=$news['body']?> </a></p>
+					<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <a class="link" href="news.php?&title=<?=$news['id']?>"><?=$news['body']?> </a></p>
 				<?php
 					}
 					continue;
 				}
 				?>
-					<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <a href="news.php?&new=<?=$newsList['id']?>"><?=$newsList['title']?> </a></p>
+					<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <a class="link" href="news.php?&new=<?=$newsList['id']?>"><?=$newsList['title']?> </a></p>
 				<?php
 				}
 				mysql_close();

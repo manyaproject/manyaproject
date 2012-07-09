@@ -8,6 +8,7 @@ header("Content-Type: text/html; charset=UTF-8");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Spuntik-головна</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
+<link href="css/menu.css" type="text/css" rel="stylesheet">
 <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
 <script src="js/equalHeight.js" type="text/javascript"> </script>
 </head>
@@ -18,6 +19,7 @@ header("Content-Type: text/html; charset=UTF-8");
        </div>
            
        <div id="nov">
+       <?php include "menu.php" ?>
        </div>
             
        <div id="kontext">
@@ -27,8 +29,8 @@ header("Content-Type: text/html; charset=UTF-8");
             </div>
             
             <div id="kontext1" >
-		<center><b>Інформація для бажаючих  <br>полікуватися в санаторій-профілакторії “Супутник” ВНТУ</b></center>
-<br>
+		Інформація для бажаючих  <br>полікуватися в санаторій-профілакторії “Супутник” ВНТУ
+
 <ol>
 <li>Кількість місць для оздоровлення та лікування — 50 на один заїзд. Тривалість заїзду 21 календарний день. Студенти розміщуються по 2-3 в кімнатах блочного житу.</li>
 <li>Студентам надаються послуги оздоровлення та лікування та 3-разове повноцінне харчування (по суботах і неділях харчуванння не надається)</li>
@@ -36,11 +38,8 @@ header("Content-Type: text/html; charset=UTF-8");
 <li>Путівки видаються в профкомі студентів за 15 днів до початку заїзду згідно поданих документів. За один день до початку заїзду видача путівок припияняється.</li>
 <li>З путівкою треба знову звернутися до лікаря оздоровпункту університету та взяти санаторно-крортну картку, і вже з путівкою та санаторно-курорною картокю оформитись у старшої медсестри в кабінеті № 214 санаторію-профілакторіюю з 13.00 до 20.00 години.</li>
 </ol>
-<p class="style_left">Ми чекаємо на Вас.<br>
-І де Ви ще знайдете такий спектр послуг і море задоволення, ще й майже задарма.<br>
-Головний лікар санаторію-профілакторію “Супутник” ВНТУ Велика Наталія Йосипівна, роб.тел. 598-767, моб.тел. 0962115833
-</p>
-<p align="right">  <a href="doc.php"> <font color="#330066" size="+1"> <b>Повернутися назад</b></font> </a>
+
+<p class="detal">  <a href="doc.php"> <<Повернутися назад</a>
  </div>
        </div>
        

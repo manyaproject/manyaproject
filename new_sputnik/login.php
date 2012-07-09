@@ -72,14 +72,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <td><br> <p align="left"><img  src="img/avtorizaciya.jpg"></p></td>
     </tr>
     <tr>-->
-    <p>логін <br><input type="text" name="login"></p>
+    логін <br><input type="text" name="login">
     
-    <p>пароль<br><input type="password" name="password"></p>
+    <br>пароль<br><input type="password" name="password">
    
 </div>
 <input type="submit" value="Вхід"/>
 </form>
-<p>Ви ще не зареєструвалися?<br> Натисніть, щоб <br><a href="register.php">зареєструватися</a></p>
+<p class="login">Ви ще не зареєструвалися?<br>Натисніть, щоб</p> <p class="detal"><a href="register.php">зареєструватися</a></p>
 <?php
 function accountDeleted()
 {

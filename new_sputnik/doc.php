@@ -30,10 +30,10 @@ header("Content-Type: text/html; charset=UTF-8");
             </div>
             
             <div id="kontext1" >
-		<p class="style_left">Інформація для бажаючих полікуватися в санаторії-профілакторії “Супутник” ВНТУ
-        <p align="right"> <a href="info.php"> <font color="#330066" size="+1"> <b>Детальніше>></b></font> </a>
-        <p class="style_left">Графік заїздів
-        <p align="right"> <a href="grafik.php"> <font color="#330066" size="+1"> <b>Детальніше>></b></font> </a>
+		<p >Інформація для бажаючих полікуватися в санаторії-профілакторії “Супутник” ВНТУ
+        <p class="detal"> <a href="info.php"> Детальніше>></a>
+        <p >Графік заїздів
+        <p class="detal"> <a href="grafik.php"> Детальніше>></a>
 <br>
 
 <p class="style_left">Ми чекаємо на Вас.<br>

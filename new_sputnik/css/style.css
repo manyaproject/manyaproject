@@ -71,16 +71,23 @@ p {
 	padding:10px 0 10px 0;
 	outline: 1px solid #C69;
 	}	
-	
+
+.detal {
+	text-align:right;
+	font:normal 14px Arial;
+	font-style:italic;
+	padding: 5px 15px;
+	}
+
 #login {
 	float:right;
-	width: 230px;
+	width: 200px;
 /*	height: 200px;*/
 /*	margin-top: 20px;*/
 	background-image:url(../images/avtorizaciya.jpg);
 	background-repeat:no-repeat;
 	padding: 0px 0 0 0;
-	margin: 0px 5px 0 20px;
+	margin: 0px 35px 0 0px;
 	outline: 1px solid #111111;
 	}
 
@@ -99,3 +106,9 @@ p {
 .clear {
 	clear:right;
 	}
+
+.link {
+	text-decoration:none;
+	font: normal 16px Arial;
+	color: #020C30;
+}
