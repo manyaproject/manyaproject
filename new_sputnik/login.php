@@ -61,7 +61,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 <head>
   <title>Вхід</title>
-    <link href="css/style_form.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
+	<link href="css/style_form.css" type="text/css" rel="stylesheet">
   <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 
