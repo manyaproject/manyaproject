@@ -64,11 +64,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
 	<link href="css/style_form.css" type="text/css" rel="stylesheet">
   <link href="css/style.css" type="text/css" rel="stylesheet">
+  
+  
 </head>
 
 <body>
+
 <form action="login.php" method="post">
 <div class="login">
+<div class="messenger"> </div>
     <!--<tr>
     <td><br> <p align="left"><img  src="img/avtorizaciya.jpg"></p></td>
     </tr>
