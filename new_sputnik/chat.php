@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once "config.inc";
 mysql_connect(DB_HOST, DB_USER, DB_PASS);
 mysql_select_db(DB_NAME);
 mysql_query("SET NAMES cp1251");

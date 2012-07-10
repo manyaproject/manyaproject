@@ -29,11 +29,11 @@ if(isset($_GET['del_travel']))
 	mysql_close();
 	header("Location: logged_in.php?&page=1");
 }
-if($_SESSION['user'] == '')
+/*if($_SESSION['user'] == '')
 {
-	echo "Ви не маєте доступу до даної сторінки! Будь-ласка зареєструйтеся або увійдіть до своєї сторінки<br/> <a href='login.php'>Зайти в свій аккаунт</a>";
+	echo "Ви не маєте доступу до даної сторінки! Будь-ласка зареєструйтеся або увійдіть в свій аккаунт<br/> <a href='login.php'>Зайти в свій аккаунт</a>";
 	exit;
-}
+}*/
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$message = $_POST["message"];
