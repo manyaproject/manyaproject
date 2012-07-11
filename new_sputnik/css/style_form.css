@@ -60,3 +60,11 @@ label {
 	font: normal 12px Arial;
 	text-align:left;
 	}
+#messenger{
+	width: 330px;
+	margin:5px 0px;
+	padding: 5px;
+	border: gray dashed 1px;
+	background: pink;
+	display:none;
+	}
