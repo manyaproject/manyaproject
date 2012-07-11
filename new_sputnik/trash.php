@@ -60,7 +60,7 @@ if(isset($_GET['user']))
 	{
 		if($user[0] == "Administrator")
 		{
-			echo "Âè íå ìîæåòå âèäàëèòè êîðèñòóâà÷à Administrator òàê ÿê öå ïðèçâåäå äî íåêîðåêòíî¿ ðîáîòè ñèñòåìè!!!";
+			echo "Ви не можете видалити користувача адміністратор так як це призведе до неправильної роботи системи!!!";
 			return 1;
 		}
 		mysql_connect(DB_HOST, DB_USER, DB_PASS);
@@ -85,21 +85,21 @@ while($chatList = mysql_fetch_assoc($chatListQuery))
 	if($chatList['deleted'] == 0) continue;
 ?>
 <hr/>
-<p>Ïîëüçîâàòåëü: <?=$chatList['user']?></p>
-<p>Äàòà íàïèñàíèÿ ïîñòà: <?=date('F j, Y, H:i:s', $chatList['date'])?></p>
-<?php if($_SESSION['user'] === "Administrator") echo "<a href='trash.php?&id=". $chatList['id'] ."'>â³äíîâèòè ç êîøèêó</a><br/>";?>
+<p>Користувач: <?=$chatList['user']?></p>
+<p>Дата написання повідомлення: <?=date('F j, Y, H:i:s', $chatList['date'])?></p>
+<?php if($_SESSION['user'] === "Administrator") echo "<a href='trash.php?&id=". $chatList['id'] ."'>Відновити повідомлення</a><br/>";?>
 <?php
 //echo "id = ". $_GET['id'];
 if($chatList['user'] !== 'Administrator')
 if($_SESSION['user'] === "Administrator")
 	{
-		if($chatList['active'] == 1)echo "<a href='trash.php?&user=". $chatList['user'] ."_deactivate'>äåàêòèâóâàòè àêàóíò</a>";
-		else echo "Àêàóíò âèäàëåíî <a href='trash.php?&user=". $chatList['user'] ."_activate'> àêòèâóâàòè?</a>";
+		if($chatList['active'] == 1)echo "<a href='trash.php?&user=". $chatList['user'] ."_deactivate'>Деактивувати користувача</a>";
+		else echo "<a href='trash.php?&user=". $chatList['user'] ."_activate'>Активувати користувача</a>";
 	}
 ?>
 
 </form>
-<p>Ïîâ³äîìëåííÿ: </p><bt/><p style="border: 1px solid blue; width: 240; height: 100"> <?=$chatList['message']?> </p>
+<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 240; height: 100"> <?=$chatList['message']?> </p>
 <?php
 }
 $sqlNews = "select id, title from news where deleted=1";

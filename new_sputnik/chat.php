@@ -10,19 +10,19 @@ while($chatList = mysql_fetch_assoc($chatListQuery))
 {	if($chatList['deleted'] == 1) continue;
 ?>
 <hr/>
-<p>Пользователь: <?=$chatList['user']?></p>
-<p>Дата написания поста: <?=date('F j, Y, H:i:s', $chatList['date'])?></p>
+<p>РљРѕСЂРёСЃС‚СѓРІР°С‡: <?=$chatList['user']?></p>
+<p>Р”Р°С‚Р° РЅР°РїРёСЃР°РЅРЅСЏ РїРѕРІС–РґРѕРјР»РµРЅРЅСЏ: <?=date('F j, Y, H:i:s', $chatList['date'])?></p>
 <?php
-if($_SESSION['user'] === "Administrator") echo "<a href='logged_in.php?&id=". $chatList['id'] ."'>удалить сообщение</a><br/>";
+if($_SESSION['user'] === "Administrator") echo "<a href='logged_in.php?&id=". $chatList['id'] ."'>Р’РёРґР°Р»РёС‚Рё РїРѕРІС–РґРѕРјР»РµРЅРЅСЏ</a><br/>";
 if($chatList['user'] !== 'Administrator')
 if($_SESSION['user'] === "Administrator")
-	{		if($chatList['active'] == 1) echo "<a href='logged_in.php?&user=". $chatList['user'] ."_deactivate'>деактивировать аккаунт</a>";
-		else echo "Аккаунт удалён <a href='logged_in.php?&user=". $chatList['user'] ."_activate'>активировать?</a>";
+	{		if($chatList['active'] == 1) echo "<a href='logged_in.php?&user=". $chatList['user'] ."_deactivate'>Р”РµР°РєС‚РёРІСѓРІР°С‚Рё Р°РєРєР°СѓРЅС‚ РєРѕСЂРёСЃС‚СѓРІР°С‡Р°</a>";
+		else echo "<a href='logged_in.php?&user=". $chatList['user'] ."_activate'>РђРєС‚РёРІСѓРІР°С‚Рё Р°РєРєР°СѓРЅС‚ РєРѕСЂРёСЃС‚СѓРІР°С‡Р°</a>";
 	}
 ?>
 
 
-<p>Сообщение: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <?=$chatList['message']?> </p>
+<p>РџРѕРІС–РґРѕРјР»РµРЅРЅСЏ: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <?=$chatList['message']?> </p>
 <?php
 }
 mysql_close();
