@@ -29,11 +29,14 @@ if(isset($_GET['del_travel']))
 	mysql_close();
 	header("Location: logged_in.php?&page=1");
 }
-/*if($_SESSION['user'] == '')
+if($_SESSION['user'] == '')
 {
-	echo "Ви не маєте доступу до даної сторінки! Будь-ласка зареєструйтеся або увійдіть в свій аккаунт<br/> <a href='login.php'>Зайти в свій аккаунт</a>";
-	exit;
-}*/
+	mysql_connect(DB_HOST, DB_USER, DB_PASS);
+	mysql_select_db(DB_NAME);
+	mysql_query("SET NAMES cp1251");
+	
+	mysql_close();
+}
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$message = $_POST["message"];
@@ -112,8 +115,10 @@ if(isset($_GET['user']))
             </div>
 
             <div id="kontext1" >
+<?php if(isset($_SESSION['user'])){ ?>			
 <p>Ви зайшли під користувачем: <?=$_SESSION['user']?></p>
 <?php
+}
 if($_SESSION['user'] !== 'Administrator')
 {
 	mysql_connect(DB_HOST, DB_USER, DB_PASS);
@@ -121,9 +126,9 @@ if($_SESSION['user'] !== 'Administrator')
 	mysql_query("SET NAMES cp1251");
 	$year = mktime(0, 0, 0, 0, 0, date("Y"));
 //	echo "year = ". $year ."<br/>";
-	$sqlUsersTravel = mysql_query("select t1.id_travel, t2.check_in, t2.check_out from travel_subs as t1 join travel as t2 on t1.id_travel=t2.id where t1.id_user=". $_SESSION['id'] ." and t2.check_in>'$year'") or die(mysql_error());
+//	$sqlUsersTravel = mysql_query("select t1.id_travel, t2.check_in, t2.check_out from travel_subs as t1 join travel as t2 on t1.id_travel=t2.id where t1.id_user=". $_SESSION['id'] ." and t2.check_in>'$year'") or die(mysql_error());
 //	var_dump($sqlUsersTravel);
-	$check = 0;
+/*	$check = 0;
 	while($usersTravel = mysql_fetch_assoc($sqlUsersTravel))
 	{
 	    //echo "id_travel=". $usersTravel['id_travel'];
@@ -137,12 +142,14 @@ if($_SESSION['user'] !== 'Administrator')
 		//else echo "<br/><a href='showTravels.php'>Ïîñìîòðåòü äîñòóïíûå çàåçäû</a><br />";
 	}
 	if($check == 0)
-		echo "<br/><a href='showTravels.php'>Ïîñìîòðåòü äîñòóïíûå çàåçäû</a><br />";
+		echo "<br/><a href='showTravels.php'>Ïîñìîòðåòü äîñòóïíûå çàåçäû</a><br />";*/
 mysql_close();
 
 }
-
-echo "<a href='exit.php'>вихід</a>";
+if(isset($_SESSION['user']))
+{
+	echo "<a href='exit.php'>вихід</a>";
+}
 include_once 'chat.php';
 if($_SESSION['user'] === "Administrator")
 	{
@@ -152,12 +159,14 @@ if($_SESSION['user'] === "Administrator")
 		echo "Показати<a href='trash.php'>кошик</a> <br/>";
 	}
 ?>
+<?php if(isset($_SESSION['user'])){ ?>
 <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
 <b>Введіть ваш коментарій</b><br/>
 <textarea cols="30" rows="8" name="message"></textarea><br/>
 <input type="submit" value="Додати">
 </form>
 <?php
+}
 if($_SESSION['amountPages'] > 1)
 for($i = 1; $i <= $_SESSION['amountPages']; $i++)
 {
