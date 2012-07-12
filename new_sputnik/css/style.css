@@ -7,13 +7,16 @@ padding:0;
 
 
 p {
+	/*width: 750px;*/
 	margin: 0 auto;
 	color:#020C30;
 	font: normal 16px Arial;
 /*	font-weight:bold;*/
 	text-indent:25px;
 	text-align:justify;
-	}
+	/*white-space:pre-wrap;*/
+	word-wrap: break-word;
+}
 
 #main {
 	margin: 0 auto;
@@ -112,3 +115,8 @@ p {
 	font: normal 16px Arial;
 	color: #020C30;
 }
+
+.grafik {
+	font: normal 14px Arial;
+	color: #020C30;
+	}

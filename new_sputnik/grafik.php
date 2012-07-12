@@ -30,7 +30,7 @@ include_once 'config.inc';
             </div>
             
             <div id="kontext1" >
-            <p>графік_заїздів</p> 
+            <p>графік заїздів</p> 
        
         <?php
 		mysql_connect(DB_HOST, DB_USER, DB_PASS);
@@ -40,17 +40,17 @@ include_once 'config.inc';
 		while($travels = mysql_fetch_assoc($sql))
 		{
 		?>
-		<p> 
+		<p class="grafik"> 
 		<?php 
-		echo 'номер заїзду: '.$travels['id'] ."<br/>";
-		echo " ". date('m.d.Y', $travels['check_in']);
+		echo 'заїзд №: '.$travels['id'] ;
+		echo "  ". date('m.d.Y', $travels['check_in']);
 		echo " - ". date('m.d.Y', $travels['check_out']);?></p>
 		<?php
 		}
 		?>
 
        
-       <p align="right">  <a href="doc.php"> <font color="#330066" size="+1"> <b>Повернутися назад</b></font> </a>
+       <p class="detal">  <a href="doc.php"> <<Повернутися назад</a>
        </div>
        </div>
        

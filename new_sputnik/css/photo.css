@@ -1,6 +1,6 @@
 #contentP {
     width: 984px;
-    height: 698px;
+    /*height: 698px;*/
     background: url(../images/contentBg.png) repeat-y;
     margin: 0 auto;
     border-radius: 10px;
