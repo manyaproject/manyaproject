@@ -79,9 +79,32 @@ function help()
 	}
 }
 var vsplil = new help();
+//Regular verbs for email address:
+function checkEmail()
+{
+	var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+	var inp = document.getElementById("inp3");
+	var right = document.getElementById("right");
+	var wrong = document.getElementById("wrong");
+	if(inp3.value.search(reg) !== -1)
+	{
+		right.style.display = "inline";
+		wrong.style.display = "none";
+		document.form[0].submit();
+	}
+	else
+	{
+		wrong.style.display = "inline";
+		right.style.display = "none";
+	}
+}
 </script>
 </head>
 <body>
+<input type="text" id="inp3" onblur="checkEmail()">
+<div style="display: none" id="right">Right</div>
+<div style="display: none" id="wrong">Wrong</div>
+<input type="button" value="send"/>
 <p onmouseover="vsplil.show('The first paragraph', this.offsetLeft, this.offsetTop)" onmouseout="vsplil.hide()">
 The paragraph text
 </p>
