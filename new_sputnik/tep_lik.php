@@ -1,9 +1,8 @@
 <?php
 session_start();
 header("Content-Type: text/html; charset=UTF-8");
-include_once 'config.inc';
 ?>
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -20,7 +19,7 @@ include_once 'config.inc';
        </div>
            
        <div id="nov">
-       <?php include "menu.php" ?>
+       <?php include "menu.php";?>       
        </div>
             
        <div id="kontext">
@@ -30,28 +29,11 @@ include_once 'config.inc';
             </div>
             
             <div id="kontext1" >
-            <p>графік заїздів</p> 
-       
-        <?php
-		mysql_connect(DB_HOST, DB_USER, DB_PASS);
-		mysql_select_db(DB_NAME);
-		mysql_query("SET NAMES cp1251");
-		$sql = mysql_query("select * from travel") or die(mysql_error());
-		while($travels = mysql_fetch_assoc($sql))
-		{
-		?>
-		<p class="grafik"> 
-		<?php 
-		echo 'заїзд №: '.$travels['id'] ;
-		echo "  ". date('m.d.Y', $travels['check_in']);
-		echo " - ". date('m.d.Y', $travels['check_out']);?></p>
-		<?php
-		}
-		?>
-
-       
-       <p class="detal">  <a href="doc.php"> <<Повернутися назад</a>
-       </div>
+       <p>Парафіно-озекеритолікування чудово лікує захворювання бронхолегеневої системи, хребта, суглобів. </p>
+       <p>Це вид лікування теплом. Як тепловий агент тут використовується оброблений озокерний-гірський віск, який складається із суміші парафіну, церезину, мінеральних солей та смол. Для лікування застосовується озокерит з якого видалено воду, луги, кислоти з температурою плавлення 52-55 С. </p>
+ 
+      <p class="detal">  <a href="lik.php"><<Повернутися назад </a>
+		</div>
        </div>
        
        <div class="clear">
