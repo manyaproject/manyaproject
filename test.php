@@ -1,6 +1,7 @@
 <html>
 <head>
 <title></title>
+<script type="text/javascript" src="new_sputnik/js/jquery-1.5.min.js"></script>
 <script type="text/javascript">
 function f()
 {
@@ -98,9 +99,60 @@ function checkEmail()
 		right.style.display = "none";
 	}
 }
+function func1()
+{
+	var namecom = document.getElementById("namecom");
+	var email1 = document.getElementById('email1');
+	var site = document.getElementById('site');
+	
+	document.cookie = 'namecom=' + encodeURIComponent(namecom.value) + ';max-age=' + 31536000 + ';path=/;domain=.sdelaysite.com';
+	document.cookie = 'email1=' + encodeURIComponent(email1.value) + ';max-age=' + 31536000 + ';path=/';
+	document.cookie = 'site=' + encodeURIComponent(site.value) + '; max-age=' + 31536000 + ';path=/';
+}
+function opencookie(par)
+{
+	var allcookies = document.cookie;
+	var pos = allcookies.indexOf(par);
+	var dlina = par.length;
+	if(pos !== -1)
+	{
+		var start = pos + dlina + 1;
+		var end = allcookies.indexOf(';', start);
+		if(end == -1)
+			end = allcookies.length;
+		var val = allcookies.substring(start, end);
+		val = decodeURIComponent(val);
+		this.cooka = val;
+	}	
+}
+function z()
+{
+	alert("cookie = " + document.cookie);
+	if(document.cookie !== "")
+	{
+		var nameCookie = new opencookie("namecom");
+		alert(nameCookie.cooka);
+		var emailCookie = new opencookie("email1");
+		alert(emailCookie.cooka);
+		var siteCookie = new opencookie("site");
+		alert(siteCookie.cooka);
+		var namecom = document.getElementById("namecom");
+		var email1 = document.getElementById("email1");
+		var site = document.getElementById("site");
+		
+		namecom.value = nameCookie.cooka;
+		email1.value = emailCookie.cooka;
+		site.value = siteCookie.cooka;
+	}
+}
 </script>
 </head>
-<body>
+<body onload="z()">
+<input type="text" id="namecom"><br/>
+<input type="text" id="email1"><br/>
+<input type="text" id="site"><br/>
+<input type="button" value="send" onclick="func1()"><br/>
+
 <input type="text" id="inp3" onblur="checkEmail()">
 <div style="display: none" id="right">Right</div>
 <div style="display: none" id="wrong">Wrong</div>
