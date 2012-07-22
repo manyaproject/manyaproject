@@ -24,7 +24,7 @@ if($_SESSION['user'] === "Administrator")
 ?>
 
 
-<p>Повідомлення: </p><bt/><p> <?=$chatList['message']?> </p>
+<bt/><p> <?=$chatList['message']?> </p>
 <?php
 }
 mysql_close();
