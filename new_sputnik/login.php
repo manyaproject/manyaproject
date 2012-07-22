@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
   <title>Вхід</title>
@@ -7,7 +10,6 @@
 	<link href="css/style_form.css" type="text/css" rel="stylesheet">
   <link href="css/style.css" type="text/css" rel="stylesheet">
 <?php
-session_start();
 /*if($_SERVER['REQUEST_METHOD'] == "GET")
 {
 	if(!isset($_GET['page']))
