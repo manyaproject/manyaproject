@@ -1,3 +1,11 @@
+<html>
+<head>
+  <title>Вхід</title>
+    <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
+	<script src="js/jquery.form.js" type="text/javascript"> </script>
+	<script src="js/jseffects.js" type="text/javascript"> </script>
+	<link href="css/style_form.css" type="text/css" rel="stylesheet">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
 <?php
 session_start();
 /*if($_SERVER['REQUEST_METHOD'] == "GET")
@@ -11,7 +19,7 @@ session_start();
 require_once 'config.inc';
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-	/*if(!is_numeric($_POST['number']))
+	if(!is_numeric($_POST['number']))
 	{
 		echo "Введіть число!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 		exit;
@@ -20,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		echo "Введіть правильне число";
 		exit;
-	}*/
+	}
 	$login = trim(strip_tags($_POST["login"]));
 	$password = md5(trim(strip_tags($_POST["password"])));
 	mysql_connect(DB_HOST, DB_USER, DB_PASS);
@@ -38,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	if($sqlUser['active'] == 0)
 	{
 		accountDeleted();
-//		echo "Ваш аккаунт видалено. Будь-ласка зверніться до адміністратора";
+		echo "Ваш аккаунт видалено. Будь-ласка зверніться до адміністратора";
 		exit;
 	}
 	if($sqlUser['password'] != $password)
@@ -50,36 +58,30 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		$_SESSION['user'] = $sqlUser['user'];
 		$_SESSION['id'] = $sqlUser['id'];
-		echo "sqlUser = ". $sqlUser['id'] ."<br />";
-		echo "session = ". $_SESSION['id'] ."<br />";
+/*		echo "sqlUser = ". $sqlUser['id'] ."<br />";
+		echo "session = ". $_SESSION['id'] ."<br />";*/
 		echo "<meta http-equiv='refresh' content='0; url=logged_in.php'>";
 	}
 	mysql_close();
 }
 ?>
-<html>
-
-<head>
-  <title>Вхід</title>
-    <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
-	<link href="css/style_form.css" type="text/css" rel="stylesheet">
-  <link href="css/style.css" type="text/css" rel="stylesheet">
-  
   
 </head>
 
 <body>
 
-<form action="login.php" method="post">
+<form action="jquery.php" method="post" id="myForm">
 <div class="login">
-<div class="messenger"> </div>
+<!--<div class="messenger"> </div>-->
     <!--<tr>
     <td><br> <p align="left"><img  src="img/avtorizaciya.jpg"></p></td>
     </tr>
     <tr>-->
-    логін <br><input type="text" name="login">
+    логін <br><input type="text" name="login" id="log">
+	<p id="errorLogin" style="display: none">Такого користувача не існує. Будь ласка зареєструйтесь</p>
     
-    <br>пароль<br><input type="password" name="password">
+    <br>пароль<br><input type="password" name="password" id="pass">
+	<p id="errorPass" style="display: none">Не правильний пароль. Будь ласка спробуйте ще раз</p>
    
 </div>
 <input type="submit" value="Вхід"/>

@@ -16,10 +16,6 @@ $(document).ready(function()
 					$("#errorLogin").css("display", "none");
 					$("#errorPass").css("display", "block");
 				}
-				else
-				{
-					$("#myForm").submit();
-				}
 		}
 	});
 });
