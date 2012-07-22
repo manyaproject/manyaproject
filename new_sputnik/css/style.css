@@ -10,7 +10,7 @@ p {
 	/*width: 750px;*/
 	margin: 0 auto;
 	color:#020C30;
-	font: normal 16px Arial;
+	font:normal 16px Arial;
 /*	font-weight:bold;*/
 	text-indent:25px;
 	text-align:justify;
@@ -23,7 +23,7 @@ p {
 	width:1052px;
 /*	outline: 4px solid #093; /*green*/	*/
 	}
-	
+
 #head {
 	width: 1052px;
 	height: 216px;
@@ -32,28 +32,28 @@ p {
 	background-image:url(../images/head.gif);
 	outline: 1px solid #F00;
 	}
-	
-	
-#head a { 
-  position: absolute; /*абсолютное позиционирование*/  
+
+
+#head a {
+  position: absolute; /*абсолютное позиционирование*/
   width: 96px; /*ширина контейнера гиперссылки*/
   height: 24px; /*высота контейнера гиперссылки*/
-} 
+}
 
-#head a:hover { 
-  border: 1px solid #020C30; /* рамка контейнера гирерссылки*/ 
-} 
+#head a:hover {
+  border: 1px solid #020C30; /* рамка контейнера гирерссылки*/
+}
 
 /*#head a:link {
 	background-color:#393;
 }*/
 
-#head .forum a { 
-    top:135px; /*позиционирование гиперссылки*/ 
-    left: 1070px; /*позиционирование гиперссылки*/ 
-} 
+#head .forum a {
+    top:135px; /*позиционирование гиперссылки*/
+    left: 1070px; /*позиционирование гиперссылки*/
+}
 
-	
+
 #nov {
 	margin: 0 auto;
 	padding:0;
@@ -63,20 +63,25 @@ p {
 	background-image:url(../images/novig.png);
 	background-repeat:no-repeat;
 	}
-	
+
 #kontext {
 	margin: 0 auto;
 	width: 1052px;
 	background-image: url(../images/kont.png);
 	outline: 1px solid #399;
 	}
-	
+
 #kontext1{
 	width: 750px;
 	margin: 0 5px 0 45px;
 	padding:10px 0 10px 0;
+<<<<<<< HEAD
 	outline: 1px solid #C69;
 	}	
+=======
+/*	outline: 1px solid #C69;*/
+	}
+>>>>>>> 876117ea27d1cd19741e3bffff016ea68657e847
 
 .detal {
 	text-align:right;
@@ -100,7 +105,7 @@ p {
 #imgLogin {
 	margin: 20px 0 20px 20px;
 	}
-	
+
 #foot {
 	margin: 0 auto;
 	background-image:url(../images/footer.png);
