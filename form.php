@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 <head>
 <title></title>
 <script type="text/javascript" src="new_sputnik/js/jquery-1.5.min.js"></script>
