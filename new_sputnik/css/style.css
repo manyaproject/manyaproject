@@ -75,13 +75,12 @@ p {
 	width: 750px;
 	margin: 0 5px 0 45px;
 	padding:10px 0 10px 0;
-<<<<<<< HEAD
 	outline: 1px solid #C69;
 	}	
-=======
+
 /*	outline: 1px solid #C69;*/
-	}
->>>>>>> 876117ea27d1cd19741e3bffff016ea68657e847
+
+
 
 .detal {
 	text-align:right;
@@ -127,4 +126,9 @@ p {
 .grafik {
 	font: normal 14px Arial;
 	color: #020C30;
+	}
+
+.imgInfo {
+	float:left;
+	margin: 5px 5px;
 	}
