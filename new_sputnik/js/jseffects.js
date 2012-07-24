@@ -11,11 +11,14 @@ $(document).ready(function()
 				$("#errorPass").css("display", "none");
 			}
 			else 
+			{				
 				if(data.typedPass !== data.password)
 				{
 					$("#errorLogin").css("display", "none");
 					$("#errorPass").css("display", "block");
 				}
+				else window.location.href = "login.php?user=" + data.user + "&id=" + data.id;
+			}
 		}
 	});
 });

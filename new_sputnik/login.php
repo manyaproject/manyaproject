@@ -6,9 +6,10 @@ session_start();
   <title>Вхід</title>
     <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
 	<script src="js/jquery.form.js" type="text/javascript"> </script>
-	<script src="js/jseffects.js" type="text/javascript"> </script>
 	<link href="css/style_form.css" type="text/css" rel="stylesheet">
-  <link href="css/style.css" type="text/css" rel="stylesheet">
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<script src="js/jseffects.js" type="text/javascript"> </script>
+
 <?php
 /*if($_SERVER['REQUEST_METHOD'] == "GET")
 {
@@ -19,9 +20,9 @@ session_start();
 }*/
 //session_start();
 require_once 'config.inc';
-if($_SERVER['REQUEST_METHOD'] == "POST")
+if(isset($_GET['user']))
 {
-	if(!is_numeric($_POST['number']))
+/*	if(!is_numeric($_POST['number']))
 	{
 		echo "Введіть число!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 		exit;
@@ -30,9 +31,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		echo "Введіть правильне число";
 		exit;
-	}
-	$login = trim(strip_tags($_POST["login"]));
-	$password = md5(trim(strip_tags($_POST["password"])));
+	}*/
+	$login = $_GET["user"];
+	//$password = md5(trim(strip_tags($_POST["password"])));
 	mysql_connect(DB_HOST, DB_USER, DB_PASS);
 	mysql_select_db(DB_NAME);
 	mysql_query("SET NAMES cp1251");
@@ -51,11 +52,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		echo "Ваш аккаунт видалено. Будь-ласка зверніться до адміністратора";
 		exit;
 	}
-	if($sqlUser['password'] != $password)
+	/*if($sqlUser['password'] != $password)
 	{
 		echo "Пароль не вірний. Будь-ласка введіть вірний пароль!!!<br/> <a href='login.php'>���������� �� ���</a>";
 		exit;
-	}
+	}*/
 	else
 	{
 		$_SESSION['user'] = $sqlUser['user'];
