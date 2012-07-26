@@ -96,8 +96,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <link href="css/menu.css" type="text/css" rel="stylesheet">
 <link href="css/style_form.css" type="text/css" rel="stylesheet">
-
-
+<script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
+<script src="js/jquery.form.js" type="text/javascript"> </script>
+<script src="js/jseffects.js" type="text/javascript"> </script>
 </head>
 <body>
 	<div id="main">
@@ -117,7 +118,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
             <div id="kontext1" >
                <h1 align="center">Реєстраційна форма</h1>
-<form name="registration" action="<?=$_SERVER['PHP_SELF']?>" method="post">
+<form name="registration" action="ajaxRegister.php" method="post" id="registerForm">
 <fieldset>
 <legend> Персональна інформація </legend>
 <p class="question"><label>ПІБ: <input class="input" type="text" name="fio"> </label></p>
@@ -129,7 +130,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <fieldset>
 <legend> Логін-деталі </legend>
 <p class="question"><label>Ваш логін <font size="-4">(використовуйте лише<br>англійські літери та цифри)</font>
-<input class="input" type="text" name="login"></label></p>
+<input class="input" type="text" name="login" id="loginReg"></label></p>
+<p style="display": none" id="userExists">Такий логін вже використовується у системі. Будь-ласка <a href='register.php'>спробуйте ще раз.</a> </p>
 <p class="question"><label>Ваш пароль <font size="-4">(використовуйте лише<br>англійські літери та цифри)</font>
 <input class="input" type="password" name="password"></label></p>
 <p class="question"><label>Повторіть Ваш пароль</font>
