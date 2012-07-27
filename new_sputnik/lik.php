@@ -25,7 +25,12 @@ header("Content-Type: text/html; charset=UTF-8");
        <div id="kontext">
        		
              <div id="login">
-				<?php include "login.php"; ?>
+				<?php 
+				if(isset($_SESSION['user']))
+					include "userMenu.php"; 
+				else
+					include "login.php";
+				?>
             </div>
             
             <div id="kontext1" >
