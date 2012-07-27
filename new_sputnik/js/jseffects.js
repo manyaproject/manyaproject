@@ -65,3 +65,17 @@ $(document).ready(function()
 		}
 	});
 });
+function checkPass()
+{
+	if($("#newPass").val().search(/^\w{6,20}$/) === -1)
+	{
+		$("#wrongPass").css("display", "block");
+		$("#changePassError").css("display", "none");
+	}
+	else if($("#newPass").val() !== $("#newPassRepeat").val())
+	{
+		$("#wrongPass").css("display", "none");
+		$("#changePassError").css("display", "block");		
+	}
+	else $("#changePass").submit();
+}

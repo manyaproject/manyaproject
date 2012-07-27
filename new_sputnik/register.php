@@ -40,7 +40,7 @@ if(isset($_GET["user"]))
 	$user = trim(strip_tags($_GET['user']));
 	$password = trim(strip_tags($_GET['password']));
 	$faculty = $_GET['faculty'];
-	if(mb_detect_encoding($_GET["login"]) != "ASCII" or mb_detect_encoding($_GET["password"]) != "ASCII")
+	if(mb_detect_encoding($_GET["user"]) != "ASCII" or mb_detect_encoding($_GET["password"]) != "ASCII")
 		echo "Використовуйте лише англійські букви та цифри в полях вводу логіна та пороля";
 	mysql_connect(DB_HOST, DB_USER, DB_PASS);
 	mysql_select_db(DB_NAME);
