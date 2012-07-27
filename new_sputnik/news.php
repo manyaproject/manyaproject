@@ -50,7 +50,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
        <div id="kontext">
 
              <div id="login">
-
+				<?php 
+				if(isset($_SESSION['user']))
+					include "userMenu.php"; 
+				else
+					include "login.php";
+				?>
             </div>
 
             <div id="kontext1" >

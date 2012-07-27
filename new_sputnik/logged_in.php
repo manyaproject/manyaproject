@@ -111,7 +111,12 @@ if(isset($_GET['user']))
        <div id="kontext">
 
              <div id="login">
-				<?php include "login.php"; ?>
+				<?php 
+				if(isset($_SESSION['user']))
+					include "userMenu.php"; 
+				else
+					include "login.php";
+				?>
             </div>
 
             <div id="kontext1" >
@@ -146,18 +151,18 @@ if($_SESSION['user'] !== 'Administrator')
 mysql_close();
 
 }
-if(isset($_SESSION['user']))
+/*if(isset($_SESSION['user']))
 {
 	echo "<a href='exit.php'>вихід</a>";
-}
+}*/
 include_once 'chat.php';
-if($_SESSION['user'] === "Administrator")
+/*if($_SESSION['user'] === "Administrator")
 	{
 		echo "<br /><a href='search.php'>Пошук</a>";
 		echo "<br /><a href='addTravel.php'>Додати заїзд</a><br/>";
 		echo "<a href='news.php'>Додати новини<a/><br/>";
 		echo "Показати<a href='trash.php'>кошик</a> <br/>";
-	}
+	}*/
 ?>
 <?php if(isset($_SESSION['user'])){ ?>
 <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
