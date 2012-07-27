@@ -1,11 +1,6 @@
 <?php
 session_start();
 header("Content-Type: text/html; charset=UTF-8");
-?>
-
-
-<?php
-
 require_once 'katalog.inc.php';
 require_once 'config.inc';
 function addGuest($fio, $city, $address, $contact,$institute , $faculty, $specialty, $user, $password)
@@ -19,49 +14,33 @@ function addGuest($fio, $city, $address, $contact,$institute , $faculty, $specia
 	$res = mysql_fetch_assoc($sql);
 	$_SESSION['id'] = $res['id'];
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST')
+if(isset($_GET["user"]))
 {
 /*	if($_POST['travel'] == '')
 	{
 		echo "Неможливо зареєструватися. Не існує жодного заїзду.";
 		exit;
 	}*/
-	if($_POST['fio'] == '' or $_POST['city'] == '' or $_POST['address'] == '' or $_POST['contact'] == '' or $_POST['login'] == '' or $_POST['password'] == '')
+	if($_GET['fio'] == '' or $_GET['city'] == '' or $_GET['address'] == '' or $_GET['contact'] == '' or $_GET['user'] == '' or $_GET['password'] == '')
 	{
 		echo "Ви не заповнилил форму!!!";
 		exit;
 	}
-	if(strlen($_POST['password']) < 6)
+	if(strlen($_GET['password']) < 6)
 	{
 		echo "Ваш пароль дуже короткий. Будь-ласка введіть як мінімум 6 знаків";
 		exit;
 	}
-	if(!is_numeric($_POST['number']))
-	{
-		echo "Введіть число ЧИСЛО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
-		exit;
-	}
-	if($_SESSION['numberCopy'] != $_POST['number'])
-	{
-		echo "Введіть правильне число";
-		exit;
-	}
-	if(md5(trim(strip_tags($_POST['password']))) != md5(trim(strip_tags($_POST['passwordCopy']))))
-		{
-			echo "Ви ввели не правильний пароль";
-			exit;
-		}
-//	$travel = $_POST["travel"];
-	$fio = trim(strip_tags($_POST["fio"]));
-	$address = trim(strip_tags($_POST["address"]));
-	$city = trim(strip_tags($_POST['city']));
-	$contact = trim(strip_tags($_POST["contact"]));
-	$specialty = $_POST['spec'];
-	$institute = $_POST['inst'];
-	$user = trim(strip_tags($_POST['login']));
-	$password = md5(trim(strip_tags($_POST['password'])));
-	$faculty = $_POST['fac'];
-	if(mb_detect_encoding($_POST["login"]) != "ASCII" or mb_detect_encoding($_POST["password"]) != "ASCII")
+	$fio = trim(strip_tags($_GET["fio"]));
+	$address = trim(strip_tags($_GET["address"]));
+	$city = trim(strip_tags($_GET['city']));
+	$contact = trim(strip_tags($_GET["contact"]));
+	$specialty = $_GET['specialty'];
+	$institute = $_GET['institute'];
+	$user = trim(strip_tags($_GET['user']));
+	$password = trim(strip_tags($_GET['password']));
+	$faculty = $_GET['faculty'];
+	if(mb_detect_encoding($_GET["login"]) != "ASCII" or mb_detect_encoding($_GET["password"]) != "ASCII")
 		echo "Використовуйте лише англійські букви та цифри в полях вводу логіна та пороля";
 	mysql_connect(DB_HOST, DB_USER, DB_PASS);
 	mysql_select_db(DB_NAME);
@@ -125,17 +104,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <p class="question"><label>Ваше місто:<input class="input" type="text" name="city"></label></p>
 <p class="question"><label>Ваша адреса:<input class="input" type="text" name="address"></label></p>
 <p class="question"><label>Ваші контакти:<input class="input" type="text" name="contact"></label></p>
+<p style="display: none" id="emptyFields">Ви не заповнили всі поля</p>
 </fieldset>
 
 <fieldset>
 <legend> Логін-деталі </legend>
 <p class="question"><label>Ваш логін <font size="-4">(використовуйте лише<br>англійські літери та цифри)</font>
 <input class="input" type="text" name="login" id="loginReg"></label></p>
-<p style="display": none" id="userExists">Такий логін вже використовується у системі. Будь-ласка <a href='register.php'>спробуйте ще раз.</a> </p>
-<p class="question"><label>Ваш пароль <font size="-4">(використовуйте лише<br>англійські літери та цифри)</font>
-<input class="input" type="password" name="password"></label></p>
+<p style="display: none" id="userExists">Такий логін вже використовується у системі. Будь-ласка спробуйте ще раз. </p>
+<p style="display: none" id="wrongUser">Ви ввели не правильне им'я користувача</p>
+<p class="question"><label>Ваш пароль <font size="-4">(використовуйте лише<br>англійські літери та цифри). Також пароль повинен містити не менше 6 знаків</font>
+<input class="input" type="password" name="password" id="password"></label></p>
 <p class="question"><label>Повторіть Ваш пароль</font>
-<input class="input" type="password" name="passwordCopy"></label></p>
+<input class="input" type="password" name="passwordCopy" id="passwordCopy"></label></p>
+<p id="passwordError" style="display: none">Ви ввели не правильний пароль</p>
 </fieldset>
 
 <fieldset>
@@ -202,6 +184,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 <p class="question"><label>Введіть число <font color="#FF0000">* </font>:<br>
 <INPUT class="input" type='text' name='number'> </label><img height='50' width='100' border='0' src='image.php'><br><br>
+<p style="display: none" id="captcha"> Ви ввели не правильне число</p>
 <input  type="image" src="images/Button.png" name="imageButton"></p>
 </form>
 <?php

@@ -29,19 +29,39 @@ $(document).ready(function()
 		dataType: "json",
 		success: function(data)
 		{
-			if(data.user === "" and $("#loginReg").val())
+			var regular = /^\w{1,10}$/;
+			if(data.id !== 0)
 			{
-				$("#userExists").css("display", "none");				
+				$("#userExists").css("display", "block");
+				$("#passwordError").css("display", "none");	
+				$("#captcha").css("display", "none");				
 			}
-			else 
-			{				
-				if(data.typedPass !== data.password)
+			else if($("#loginReg").val().search(regular) === -1)
 				{
-					$("#errorLogin").css("display", "none");
-					$("#errorPass").css("display", "block");
+					$("#wrongUser").css("display", "block");
+					$("#userExists").css("display", "none");
+					$("#passwordError").css("display", "none");
 				}
-				else window.location.href = "login.php?user=" + data.user + "&id=" + data.id;
-			}
+			else if(data.captcha === "captcha")
+				{
+					$("#captcha").css("display", "block");
+					$("#userExists").css("display", "none");
+					$("#passwordError").css("display", "none");
+				}
+			else if($("#password").val().search(/^\w{6,20}$/) === -1 || $("#password").val() !== $("#passwordCopy").val())
+				{
+					$("#passwordError").css("display", "block");
+					$("#captcha").css("display", "none");
+					$("#userExists").css("display", "none");
+				}
+			else if(data.fio === "" || data.address === "" || data.city === "" || data.contact === "" )
+				{
+					$("#emptyFields").css("display", "block");
+					$("#passwordError").css("display", "none");
+					$("#captcha").css("display", "none");
+					$("#userExists").css("display", "none");
+				}
+			else window.location.href = "register.php?user=" + data.user + "&fio=" + data.fio + "&address=" + data.address + "&city=" + data.city + "&contact=" + data.contact + "&faculty=" + data.faculty + "&institute=" + data.institute + "&specialty=" + data.specialty + "&password=" + data.password;
 		}
 	});
 });
