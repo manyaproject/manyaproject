@@ -34,7 +34,7 @@ if($_SESSION['user'] == '')
 	mysql_connect(DB_HOST, DB_USER, DB_PASS);
 	mysql_select_db(DB_NAME);
 	mysql_query("SET NAMES cp1251");
-	
+
 	mysql_close();
 }
 if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -111,16 +111,16 @@ if(isset($_GET['user']))
        <div id="kontext">
 
              <div id="login">
-				<?php 
+				<?php
 				if(isset($_SESSION['user']))
-					include "userMenu.php"; 
+					include "userMenu.php";
 				else
 					include "login.php";
 				?>
             </div>
 
             <div id="kontext1" >
-<?php if(isset($_SESSION['user'])){ ?>			
+<?php if(isset($_SESSION['user'])){ ?>
 <p>Ви зайшли під користувачем: <?=$_SESSION['user']?></p>
 <?php
 }
@@ -151,17 +151,6 @@ if($_SESSION['user'] !== 'Administrator')
 mysql_close();
 
 }
-<<<<<<< HEAD
-if(isset($_SESSION['user']))
-{
-	echo "<a href='exit.php'>вихід</a>";
-}
-=======
-/*if(isset($_SESSION['user']))
-{
-	echo "<a href='exit.php'>вихід</a>";
-}*/
->>>>>>> jsbranch
 include_once 'chat.php';
 /*if($_SESSION['user'] === "Administrator")
 	{
