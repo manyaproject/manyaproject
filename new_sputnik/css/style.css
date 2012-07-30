@@ -28,8 +28,9 @@ p {
 	width: 1052px;
 	height: 216px;
 	margin: 0 auto;
+	padding:0;
 	background-image:url(../images/head.gif);
-/*	outline: 1px solid #F00;*/
+	outline: 1px solid #F00;
 	}
 
 
@@ -55,25 +56,32 @@ p {
 
 #nov {
 	margin: 0 auto;
+	padding:0;
 	width: 1052px;
 	height: 86px;
-/*	outline: 1px solid #111111;*/
+	outline: 1px solid #111111;
 	background-image:url(../images/novig.png);
+	background-repeat:no-repeat;
 	}
 
 #kontext {
 	margin: 0 auto;
 	width: 1052px;
 	background-image: url(../images/kont.png);
-/*	outline: 1px solid #399;*/
+	outline: 1px solid #399;
 	}
 
 #kontext1{
 	width: 750px;
 	margin: 0 5px 0 45px;
 	padding:10px 0 10px 0;
-/*	outline: 1px solid #C69;*/
+	outline: 1px solid #C69;
 	}
+
+
+/*	outline: 1px solid #C69;*/
+
+
 
 .detal {
 	text-align:right;
@@ -119,4 +127,9 @@ p {
 .grafik {
 	font: normal 14px Arial;
 	color: #020C30;
+	}
+
+.imgInfo {
+	float:left;
+	margin: 5px 5px;
 	}

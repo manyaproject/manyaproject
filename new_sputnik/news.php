@@ -18,7 +18,7 @@ if(isset($_GET['new']))
 	$sqlBody = mysql_query($sqlQuery) or die(mysql_error());
 	//while($news = mysql_fetch_assoc($sqlQuery))
 }
-if($_SERVER['REQUEST_METHOD'] == "POST")
+if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["title"]) and isset($_POST["message"]))
 {
 	$title = $_POST["title"];
 	$message = $_POST["message"];
@@ -50,7 +50,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
        <div id="kontext">
 
              <div id="login">
-
+				<?php 
+				if(isset($_SESSION['user']))
+					include "userMenu.php"; 
+				else
+					include "login.php";
+				?>
             </div>
 
             <div id="kontext1" >
@@ -87,9 +92,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 				Введіть коротке повідомлення: <input type="text" name="title"><br/>
 				Введіть повідомлення: <textarea cols="30" rows="8" name="message"></textarea><br/>
 				<input type="submit" value="добавить">
-				</form>
+				<a href="upload.php">Загрузити фотографії на сервер</a>
 				<?php } ?>
-				
+				<p style="display: none" id="uploadSuccessful">Ваш файл був загружений вдало</p>
+				<p style="display: none" id="uploadError">При загрузці файлу виникла помилка</p>
 
             </div>
 

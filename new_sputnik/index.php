@@ -9,6 +9,7 @@ header("Content-Type: text/html; charset=UTF-8");
 <title>Spuntik-головна</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <link href="css/menu.css" type="text/css" rel="stylesheet">
+<!--<link href="css/user_menu.css" type="text/css" rel="stylesheet">-->
 <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
 <script src="js/equalHeight.js" type="text/javascript"> </script>
 </head>
@@ -25,7 +26,12 @@ header("Content-Type: text/html; charset=UTF-8");
        <div id="kontext">
        		
              <div id="login">
-				<p></p><?php include "login.php"; ?>
+				<p></p><?php 
+				if(isset($_SESSION['user']))
+					include "userMenu.php"; 
+				else
+					include "login.php";
+				?>
             </div>
             
             <div id="kontext1" >

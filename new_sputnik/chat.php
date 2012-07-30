@@ -11,8 +11,8 @@ while($chatList = mysql_fetch_assoc($chatListQuery))
 	if($chatList['deleted'] == 1) continue;
 ?>
 <hr/>
-<p class="grafik"><?=$chatList['user']?>
- <?=date('F j, Y, H:i:s', $chatList['date'])?></p>
+<p class="grafik">Користувач: <?=$chatList['user']?></p>
+<p>Дата написання повідомлення: <?=date('F j, Y, H:i:s', $chatList['date'])?></p>
 <?php
 if($_SESSION['user'] === "Administrator") echo "<a href='logged_in.php?&id=". $chatList['id'] ."'>Видалити повідомлення</a><br/>";
 if($chatList['user'] !== 'Administrator')
@@ -21,10 +21,11 @@ if($_SESSION['user'] === "Administrator")
 		if($chatList['active'] == 1) echo "<a href='logged_in.php?&user=". $chatList['user'] ."_deactivate'>Деактивувати аккаунт користувача</a>";
 		else echo "<a href='logged_in.php?&user=". $chatList['user'] ."_activate'>Активувати аккаунт користувача</a>";
 	}
+
 ?>
 
 
-<p>Повідомлення: </p><bt/><p> <?=$chatList['message']?> </p>
+<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <?=$chatList['message']?> </p>
 <?php
 }
 mysql_close();
