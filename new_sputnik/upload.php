@@ -14,8 +14,8 @@
 			action: 'upload-file.php',
 			name: 'uploadfile',
 			onSubmit: function(file, ext){
-				 if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
-                    // extension is not allowed 
+				 if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){
+                    // extension is not allowed
 					status.text('Only JPG, PNG or GIF files are allowed');
 					return false;
 				}
@@ -32,7 +32,7 @@
 				}
 			}
 		});
-		
+
 	});
 </script>
 </head>
@@ -41,7 +41,7 @@
 		<h3>&raquo; AJAX File Upload Form Using jQuery</h3>
 		<!-- Upload Button, use any id you wish-->
 		<div id="upload" ><span>Upload File<span></div><span id="status" ></span>
-		
+
 		<ul id="files" ></ul>
 </div>
 

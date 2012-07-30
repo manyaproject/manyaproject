@@ -152,10 +152,7 @@ mysql_close();
 
 }
 
-if(isset($_SESSION['user']))
-{
-	echo "<a href='exit.php'>вихід</a>";
-}
+
 include_once 'chat.php';
 /*if($_SESSION['user'] === "Administrator")
 	{
