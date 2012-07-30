@@ -50,9 +50,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["title"]) and isset($_P
        <div id="kontext">
 
              <div id="login">
-				<?php 
+				<?php
 				if(isset($_SESSION['user']))
-					include "userMenu.php"; 
+					include "userMenu.php";
 				else
 					include "login.php";
 				?>
@@ -74,8 +74,25 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["title"]) and isset($_P
 				{
 					while($news = mysql_fetch_assoc($sqlBody))
 					{
-				?>	
-					<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <a class="link" href="news.php?&title=<?=$news['id']?>"><?=$news['body']?> </a></p>
+				?>
+					<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <a class="link" href="news.php?&title=<?=$news['id']?>">
+					<?php
+					$com = explode("##", $news['body']);
+					$body = explode("::", $news['body']);
+					for($i = 0; $i < count($body); $i++)
+					{
+						if($i%2 == 0)
+						{
+							$body[$i] = ereg_replace("##". $com[$i] ."##", " ", $body[$i]);
+							echo $body[$i];
+						}
+						else
+						{
+							echo "<img src='uploads/". $body[$i] ."'/>";
+							//echo $com[$i];
+						}
+					}
+					?> </a></p>
 				<?php
 					}
 					continue;
