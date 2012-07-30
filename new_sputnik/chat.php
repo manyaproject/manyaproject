@@ -17,9 +17,11 @@ while($chatList = mysql_fetch_assoc($chatListQuery))
 if($_SESSION['user'] === "Administrator") echo "<a href='logged_in.php?&id=". $chatList['id'] ."'>Видалити повідомлення</a><br/>";
 if($chatList['user'] !== 'Administrator')
 if($_SESSION['user'] === "Administrator")
-{	if($chatList['active'] == 1) echo "<a href='logged_in.php?&user=". $chatList['user'] ."_deactivate'>Деактивувати аккаунт користувача</a>";
-	else echo "<a href='logged_in.php?&user=". $chatList['user'] ."_activate'>Активувати аккаунт користувача</a>";
-}
+	{
+		if($chatList['active'] == 1) echo "<a href='logged_in.php?&user=". $chatList['user'] ."_deactivate'>Деактивувати аккаунт користувача</a>";
+		else echo "<a href='logged_in.php?&user=". $chatList['user'] ."_activate'>Активувати аккаунт користувача</a>";
+	}
+
 ?>
 
 

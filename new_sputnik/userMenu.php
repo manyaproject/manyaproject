@@ -17,6 +17,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 <html>
 <head>
+<link href="css/user_menu.css" type="text/css" rel="stylesheet">
+
+<?php
+//if(isset($_SESSION['user']))
+//{
+//	echo "<a href='exit.php'>Вихід</a>";
+//}
+//if($_SESSION['user'] === "Administrator")
+//	{
+//		echo "<br /><a href='search.php'>Пошук</a>";
+//		echo "<br /><a href='addTravel.php'>Додати заїзд</a><br/>";
+//		echo "<a href='news.php'>Додати новину<a/><br/>";
+//		echo "Показати<a href='trash.php'>Кошик</a> <br/>";
+//	}
+?>
+<script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
+<script src="js/jquery.form.js" type="text/javascript"> </script>
+<script src="js/jseffects.js" type="text/javascript"> </script>
+</head>
+<body>
+<p class="user_menu">
 <?php
 if(isset($_SESSION['user']))
 {
@@ -24,10 +45,10 @@ if(isset($_SESSION['user']))
 }
 if($_SESSION['user'] === "Administrator")
 	{
-		echo "<br /><a href='search.php'>Пошук</a>";
-		echo "<br /><a href='addTravel.php'>Додати заїзд</a><br/>";
+		echo "<br/><a href='search.php'>Пошук</a>";
+		echo "<br/><a href='addTravel.php'>Додати заїзд</a><br/>";
 		echo "<a href='news.php'>Додати новину<a/><br/>";
-		echo "Показати<a href='trash.php'>Кошик</a> <br/>";
+		echo "<a href='trash.php'>Кошик</a> <br/>";
 	}
 ?>
 <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
