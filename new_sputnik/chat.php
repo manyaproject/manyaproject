@@ -7,7 +7,8 @@ mysql_query("SET NAMES cp1251");
 require_once 'paging.php';
 $chatListQuery = mysql_query("select t2.user, t2.active, t1.id, t1.date, t1.message, t1.deleted from forum as t1, subscriber as t2 where t1.id_user = t2.id and t1.deleted=0 limit ". $_SESSION['first'] .",". $_SESSION['last']) or die(mysql_error());
 while($chatList = mysql_fetch_assoc($chatListQuery))
-{	if($chatList['deleted'] == 1) continue;
+{
+	if($chatList['deleted'] == 1) continue;
 ?>
 <hr/>
 <p>Користувач: <?=$chatList['user']?></p>
@@ -16,7 +17,8 @@ while($chatList = mysql_fetch_assoc($chatListQuery))
 if($_SESSION['user'] === "Administrator") echo "<a href='logged_in.php?&id=". $chatList['id'] ."'>Видалити повідомлення</a><br/>";
 if($chatList['user'] !== 'Administrator')
 if($_SESSION['user'] === "Administrator")
-	{		if($chatList['active'] == 1) echo "<a href='logged_in.php?&user=". $chatList['user'] ."_deactivate'>Деактивувати аккаунт користувача</a>";
+	{
+		if($chatList['active'] == 1) echo "<a href='logged_in.php?&user=". $chatList['user'] ."_deactivate'>Деактивувати аккаунт користувача</a>";
 		else echo "<a href='logged_in.php?&user=". $chatList['user'] ."_activate'>Активувати аккаунт користувача</a>";
 	}
 ?>
