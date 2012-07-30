@@ -151,17 +151,10 @@ if($_SESSION['user'] !== 'Administrator')
 mysql_close();
 
 }
-<<<<<<< HEAD
 if(isset($_SESSION['user']))
 {
 	echo "<a href='exit.php'>вихід</a>";
 }
-=======
-/*if(isset($_SESSION['user']))
-{
-	echo "<a href='exit.php'>вихід</a>";
-}*/
->>>>>>> jsbranch
 include_once 'chat.php';
 /*if($_SESSION['user'] === "Administrator")
 	{
