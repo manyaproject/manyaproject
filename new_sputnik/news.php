@@ -36,6 +36,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["title"]) and isset($_P
 <title>Spuntik-головна</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <link href="css/menu.css" type="text/css" rel="stylesheet">
+<script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
+<script src="js/jseffects.js" type="text/javascript"> </script>
 
 </head>
 <body>
@@ -77,19 +79,29 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["title"]) and isset($_P
 				?>
 					<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <a class="link" href="news.php?&title=<?=$news['id']?>">
 					<?php
-					$com = explode("##", $news['body']);
+					
 					$body = explode("::", $news['body']);
 					for($i = 0; $i < count($body); $i++)
 					{
 						if($i%2 == 0)
 						{
-							$body[$i] = ereg_replace("##". $com[$i] ."##", " ", $body[$i]);
-							echo $body[$i];
+							$com = explode("##", $body[$i]);
+							for($j=0; $j < count($com); $j++)
+							{
+								echo "<p></p>";
+								if($j%2 > 0)
+								{
+									echo "<h1>".$com[$j]."</h1>";
+								}
+								else
+								{
+									echo $com[$j];
+								}
+							}
 						}
 						else
 						{
 							echo "<img src='uploads/". $body[$i] ."'/>";
-							//echo $com[$i];
 						}
 					}
 					?> </a></p>
@@ -105,15 +117,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["title"]) and isset($_P
 				 	if($_SESSION['user'] == "Administrator")
 					{
 				?>
-				<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-				Введіть коротке повідомлення: <input type="text" name="title"><br/>
-				Введіть повідомлення: <textarea cols="30" rows="8" name="message"></textarea><br/>
-				<input type="submit" value="добавить">
+				<form action="<?=$_SERVER['PHP_SELF']?>" method="post" id="newsForm">
+				Введіть коротке повідомлення: <input type="text" name="title" id="newsTitle"><br/>
+				<p style='display: none' id="newsTitleError">Ви не заповнили поле "Коротке повідомлення"</p>
+				Введіть повідомлення: <textarea cols="30" rows="8" name="message" id="newsBody"></textarea><br/>
+				<p style='display: none' id="newsBodyError">Ви не заповнили поле "Повідомлення"</p>
+				<input type="button" value="додати" onclick="newsValidation()"/>
 				<a href="upload.php">Загрузити фотографії на сервер</a>
 				<?php } ?>
-				<p style="display: none" id="uploadSuccessful">Ваш файл був загружений вдало</p>
-				<p style="display: none" id="uploadError">При загрузці файлу виникла помилка</p>
-
             </div>
 
 

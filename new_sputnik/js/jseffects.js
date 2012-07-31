@@ -34,7 +34,8 @@ $(document).ready(function()
 			{
 				$("#userExists").css("display", "block");
 				$("#passwordError").css("display", "none");	
-				$("#captcha").css("display", "none");				
+				$("#captcha").css("display", "none");
+				$("#wrongUser").css("display", "none");
 			}
 			else if($("#loginReg").val().search(regular) === -1)
 				{
@@ -78,4 +79,24 @@ function checkPass()
 		$("#changePassError").css("display", "block");		
 	}
 	else $("#changePass").submit();
+}
+function newsValidation()
+{	
+	if($("#newsTitle").val() === "")
+	{
+		$("#newsTitleError").css("display", "block");
+		$("#newsBodyError").css("display", "none");
+	}
+	else if($("#newsBody").val() === "")
+	{
+		$("#newsTitleError").css("display", "none");
+		$("#newsBodyError").css("display", "block");
+	}
+	else $("#newsForm").submit();
+}
+function chatValidate()
+{
+	if($("#chatMessage").val() === "")
+		$("#chatError").css("display", "block");
+	else $("#chatForm").submit();
 }
