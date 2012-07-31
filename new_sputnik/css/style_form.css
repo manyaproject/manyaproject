@@ -54,12 +54,13 @@ fieldset {
 .input {
 	border: 2px solid #FBE7B5;
 	height: 27px;
+	width: 267px;
 	font:14px Arial;
 	/*background-image:url(../images/form.png);*/
 	background-image:url(../images/form.png);
 	background-repeat: repeat-x;
-	line-height: 27px;
-	padding: 0 37px;
+	line-height: 17px;
+	padding: 0 7px;
 	margin: 0px 15px 5px 20px;
 /*	margin-right: 550px;*/
 	}
