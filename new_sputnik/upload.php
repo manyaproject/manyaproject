@@ -1,3 +1,7 @@
+<?php
+header("Content-Type: text/html; charset=UTF-8");
+$list = scandir("./uploads");
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head profile="http://gmpg.org/xfn/11">
@@ -27,7 +31,13 @@
 				//Add uploaded file to list
 				if(response==="success"){
 					$('<li></li>').appendTo('#files').html('<img src="./uploads/'+file+'" alt="" /><br />'+file).addClass('success');
-				} else{
+				} 
+				else if(response === "errorSize")
+				{
+					$("<li></li>").appendTo("#files").text("Ви намагаєтесь загрузити занадто широкий файл. Будь-ласка обробіть картинку, щоб вона мала не більше, ніж 729px в ширину");
+				}
+				else
+				{
 					$('<li></li>').appendTo('#files').text(file).addClass('error');
 				}
 			}
@@ -42,7 +52,15 @@
 		<!-- Upload Button, use any id you wish-->
 		<div id="upload" ><span>Upload File<span></div><span id="status" ></span>
 
-		<ul id="files" ></ul>
+		<ul id="files" >
+		<?php
+		for($i = 0; $i < count($list); $i++)
+		{
+			if($list[$i] == "." or $list[$i] == "..") continue;
+			echo "<li class='success'><img src='./uploads/".$list[$i]."'><br/></li>";
+		}
+		?>
+		</ul>
 </div>
 
 </body>
