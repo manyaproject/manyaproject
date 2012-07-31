@@ -8,9 +8,10 @@ h1 {
 	}
 
 p, legend {
-	font:16px Arial;
+	font: normal 16px Arial;
 	color:#020C30;
-	margin-top: 5px; 
+	margin-top: 5px;
+/*	font-weight:normal;*/
 	}
 	
 legend {
@@ -18,12 +19,29 @@ legend {
 	font-weight:bold;
 	}
 
+#kontext1_left {
+	width: 350px;
+	/*outline: 1px solid #C69;*/
+	padding: 0px;
+	background-color: #FEFBF3;
+	}
+	
+#kontext1_right {
+	background-color: #FEFBF3;
+	float: right;
+	width: 350px;
+	/*outline: 1px solid #C69;*/
+	/*background-image:url(../images/boy_r.png);
+	background-repeat: no-repeat;*/
+	}
+	
 textarea {
 	font:14px Arial;
 	}
 	
 .question {
-	font-weight:bold;
+	text-align: left;
+	margin-top: 5px;
 	}
 
 fieldset {
@@ -34,17 +52,20 @@ fieldset {
 	}
 
 .input {
-	border: 1px solid #093;
+	border: 2px solid #FBE7B5;
 	height: 27px;
 	font:14px Arial;
+	/*background-image:url(../images/form.png);*/
 	background-image:url(../images/form.png);
 	background-repeat: repeat-x;
 	line-height: 27px;
-	padding: 0 7px;
+	padding: 0 37px;
+	margin: 0px 15px 5px 20px;
+/*	margin-right: 550px;*/
 	}
 	
 .input:focus {
-	border: 2px solid ##009933;
+	border: 2px solid #009933;
 	background:none;
 	background-color:#FFF;
 	}
@@ -52,13 +73,25 @@ fieldset {
 label {
 	cursor:pointer;
 	font:16px Arial;
-	font-weight:bold;
+/*	font-weight:bold;*/
 	}
 
 .login {
 	padding-top:40px;
 	font: normal 12px Arial;
 	text-align:left;
+	}
+	
+.img_r {
+	/*outline: 1px solid #111111;*/
+	margin: 25px 25px 10px 20px;
+	float: left;
+	}
+	
+.img_l {
+	/*outline: 1px solid #111111;*/
+	float:right;
+	margin: 25px 25px 10px 20px;
 	}
 #messenger{
 	width: 330px;
