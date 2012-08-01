@@ -27,14 +27,23 @@ legend {
 	}
 	
 #kontext1_right {
-	background-color: #FEFBF3;
-	float: right;
+		float: right;
 	width: 350px;
+	/*height: 220px;*/
+	background-color: #FEFBF3;
+	padding: 0;
+	/*margin-left: 400px;*/
 	/*outline: 1px solid #C69;*/
 	/*background-image:url(../images/boy_r.png);
 	background-repeat: no-repeat;*/
 	}
-	
+
+.kontext1_center {
+	/*float:none;*/
+	background-color: #FEFBF3;
+	width: 725px;
+	}
+
 textarea {
 	font:14px Arial;
 	}
@@ -92,8 +101,36 @@ label {
 .img_l {
 	/*outline: 1px solid #111111;*/
 	float:right;
-	margin: 25px 25px 10px 20px;
+	margin: 5px 25px 10px 25px;
 	}
+
+.spisok {
+	width: 685px;
+	height: 31px;
+	padding: 3px;
+	margin: 0px 15px 5px 20px;
+	border: 2px solid #FBE7B5;
+	background-image:url(../images/form.png);
+	background-repeat: repeat-x;
+	}
+
+.spisok:focus {
+	border: 2px solid #009933;
+	background:none;
+	background-color:#FFF;
+	}
+	
+.img_captcha {
+	margin-left: 20px;
+	height: 50px;
+	width:100px;
+	border:0px;
+	}
+	
+.img_botton {
+	margin: 5px 100px 15px 500px;
+	}
+	
 #messenger{
 	width: 330px;
 	margin:5px 0px;

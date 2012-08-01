@@ -132,77 +132,82 @@ if(isset($_GET["user"]))
                         </fieldset>
                      </div>
 
-<fieldset>
-<legend> Навчання </legend>
-<p class="question"><label for="institut">Виберіть іинститут:</label>
-<select name="inst" size="1" id="institut" class="spisok">
-<option><?php echo InAEKSU; ?></option>
-<option><?php echo InBTGPE; ?></option>
-<option><?php echo InEEEM; ?></option>
-<option><?php echo InITKI ;?></option>
-<option><?php echo InMT; ?></option>
-<option><?php echo InRTZP; ?></option>
-<option><?php echo InFEP; ?></option>
-</select></p>
-<p></p>
-<p class="question"><label for="fac">Виберіть факльтет:</label><select name="fac" id="fac" class="spisok">
-<option><?php echo FAKSU; ?></option>
-<option><?php echo FFELT; ?></option>
-<option><?php echo FTEGP; ?></option>
-<option><?php echo FBBM; ?></option>
-<option><?php echo FEEE; ?></option>
-<option><?php echo FEMEEM; ?></option>
-<option><?php echo FKSS; ?></option>
-<option><?php echo FKI; ?></option>
-<option><?php echo FTAKM; ?></option>
-<option><?php echo FARV; ?></option>
-<option><?php echo FFZEM; ?></option>
-<option><?php echo FIPSM; ?></option>
-<option><?php echo FMBEP; ?></option>
-<option><?php echo FRTTK; ?></option>
-</select></p>
-<p></p>
-<p class="question"><label for="spec">Виберіть спеціальність:</label>
-<select name="spec" id="spec" class="spisok">
-<option><?php echo FAKSU_MIT; ?></option>
-<option><?php echo FAKSU_CI; ?></option>
-<option><?php echo FFELT_EP; ?></option>
-<option><?php echo FFELT_MP; ?></option>
-<option><?php echo FFELT_LOT; ?></option>
-<option><?php echo FTEGP_MEN; ?></option>
-<option><?php echo FTEGP_STR; ?></option>
-<option><?php echo FBBM_STR; ?></option>
-<option><?php echo FBBM_T; ?></option>
-<option><?php echo FEEE_EE; ?></option>
-<option><?php echo FEEE_E; ?></option>
-<option><?php echo FEMEEM_ESE; ?></option>
-<option><?php echo FEMEEM_ESAE; ?></option>
-<option><?php echo FEMEEM_EM; ?></option>
-<option><?php echo FKSS_KI; ?></option>
-<option><?php echo FKSS_UIB; ?></option>
-<option><?php echo FKSS_BIKSS; ?></option>
-<option><?php echo FKI_PI; ?></option>
-<option><?php echo FKI_KN; ?></option>
-<option><?php echo FTAKM_IM; ?></option>
-<option><?php echo FARV_S; ?></option>
-<option><?php echo FARV_AT; ?></option>
-<option><?php echo FIPSM_M; ?></option>
-<option><?php echo FFZEM_M; ?></option>
-<option><?php echo FMBEP_R; ?></option>
-<option><?php echo FRTTK_R; ?></option>
-<option><?php echo FRTTK_T; ?></option>
-</select></p>
-</fieldset>
+                     
+                        <fieldset class="kontext1_center">
+                        <legend> Навчання </legend>
+                        <p class="question"><label for="institut">Виберіть іинститут:</label>
+                        <br><select name="inst" size="1" id="institut" class="spisok">
+                        <option><?php echo InAEKSU; ?></option>
+                        <option><?php echo InBTGPE; ?></option>
+                        <option><?php echo InEEEM; ?></option>
+                        <option><?php echo InITKI ;?></option>
+                        <option><?php echo InMT; ?></option>
+                        <option><?php echo InRTZP; ?></option>
+                        <option><?php echo InFEP; ?></option>
+                        </select></p>
+                        <p></p>
+                        <p class="question"><label for="fac">Виберіть факльтет:</label>
+                        <br><select name="fac" id="fac" class="spisok">
+                        <option><?php echo FAKSU; ?></option>
+                        <option><?php echo FFELT; ?></option>
+                        <option><?php echo FTEGP; ?></option>
+                        <option><?php echo FBBM; ?></option>
+                        <option><?php echo FEEE; ?></option>
+                        <option><?php echo FEMEEM; ?></option>
+                        <option><?php echo FKSS; ?></option>
+                        <option><?php echo FKI; ?></option>
+                        <option><?php echo FTAKM; ?></option>
+                        <option><?php echo FARV; ?></option>
+                        <option><?php echo FFZEM; ?></option>
+                        <option><?php echo FIPSM; ?></option>
+                        <option><?php echo FMBEP; ?></option>
+                        <option><?php echo FRTTK; ?></option>
+                        </select></p>
+                        <p></p>
+                        <p class="question"><label for="spec">Виберіть спеціальність:</label>
+                        <br><select name="spec" id="spec" class="spisok">
+                        <option><?php echo FAKSU_MIT; ?></option>
+                        <option><?php echo FAKSU_CI; ?></option>
+                        <option><?php echo FFELT_EP; ?></option>
+                        <option><?php echo FFELT_MP; ?></option>
+                        <option><?php echo FFELT_LOT; ?></option>
+                        <option><?php echo FTEGP_MEN; ?></option>
+                        <option><?php echo FTEGP_STR; ?></option>
+                        <option><?php echo FBBM_STR; ?></option>
+                        <option><?php echo FBBM_T; ?></option>
+                        <option><?php echo FEEE_EE; ?></option>
+                        <option><?php echo FEEE_E; ?></option>
+                        <option><?php echo FEMEEM_ESE; ?></option>
+                        <option><?php echo FEMEEM_ESAE; ?></option>
+                        <option><?php echo FEMEEM_EM; ?></option>
+                        <option><?php echo FKSS_KI; ?></option>
+                        <option><?php echo FKSS_UIB; ?></option>
+                        <option><?php echo FKSS_BIKSS; ?></option>
+                        <option><?php echo FKI_PI; ?></option>
+                        <option><?php echo FKI_KN; ?></option>
+                        <option><?php echo FTAKM_IM; ?></option>
+                        <option><?php echo FARV_S; ?></option>
+                        <option><?php echo FARV_AT; ?></option>
+                        <option><?php echo FIPSM_M; ?></option>
+                        <option><?php echo FFZEM_M; ?></option>
+                        <option><?php echo FMBEP_R; ?></option>
+                        <option><?php echo FRTTK_R; ?></option>
+                        <option><?php echo FRTTK_T; ?></option>
+                        </select></p>
+                        </fieldset>
+                    
 
-<p class="question"><label>Введіть число <font color="#FF0000">* </font>:<br>
-<INPUT class="input" type='text' name='number'> </label><img height='50' width='100' border='0' src='image.php'><br><br>
-<p style="display: none" id="captcha"> Ви ввели не правильне число</p>
-<input  type="image" src="images/Button.png" name="imageButton"></p>
-</form>
-<?php
-$_SESSION['numberCopy'] = $_SESSION['numberCopy1'];
-
-?>
+                        <img class="img_captcha" src='image.php'>
+                        <p class="question"><label>Введіть число <font color="#FF0000">* </font>:
+                        
+                        <p> <input class="input" type='text' name='number'> </label></p><br><br>
+                        <p style="display: none"> <!--id="captcha"--> Ви ввели не правильне число</p>
+                        <input class="img_botton"  type="image" src="images/Button.png" name="imageButton"></p>
+                        </form>
+                        <?php
+                        $_SESSION['numberCopy'] = $_SESSION['numberCopy1'];
+                        
+                        ?>
             </div>
 
 

@@ -132,3 +132,25 @@ p {
 	float:left;
 	margin: 5px 5px;
 	}
+
+.messenger {
+	border: 2px solid #FBE7B5; 
+	width: 650px;
+	text-indent: 3px;
+	padding: 10px;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	background-color: #FEFBF3;
+	color: #3F3B99;
+	}
+	
+.textarea_chat {
+	margin: 5px 50px 10px 40px;
+	border: 2px solid #FBE7B5;
+	background-color: #EDF3D5; 
+	}
+
+.textarea_chat:focus {
+	border: 2px solid #009933;
+	background-color: #FEFBF3;
+	}
