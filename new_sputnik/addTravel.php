@@ -4,7 +4,7 @@ header("Content-Type: text/html; charset=UTF-8");
 require_once 'config.inc';
 if($_SESSION['user'] !== "Administrator")
 {
-	echo "Вы не имеете доступа к этой странице";
+	echo "Ви не маєте доступу до цієї сторінки";
 	exit;
 }
 	if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -26,7 +26,7 @@ if($_SESSION['user'] !== "Administrator")
 		mysql_connect(DB_HOST, DB_USER, DB_PASS);
 		mysql_select_db(DB_NAME);
 		mysql_query("SET NAMES cp1251");
-		$sql = "insert into travel(check_in, check_out) values('$checkIn', '$checkOut')";
+		$sql = "insert into travel(check_in, check_out, deleted) values('$checkIn', '$checkOut', 0)";
 		mysql_query($sql) or die(mysql_error());
 		mysql_close();
 		header("Location:". $_SERVER['SCRIPT_NAME']);
@@ -44,25 +44,25 @@ if($_SESSION['user'] !== "Administrator")
 </head>
 <body>
 	<div id="main">
-       <div id="head"> 
+       <div id="head">
            <p class="forum"><a href="logged_in.php"></a></p>
        </div>
-           
+
        <div id="nov">
        <?php include "menu.php"?>
        </div>
-            
+
        <div id="kontext">
-       		
+
              <div id="login">
-				<p></p><?php 
+				<p></p><?php
 				if(isset($_SESSION['user']))
-					include "userMenu.php"; 
+					include "userMenu.php";
 				else
 					include "login.php";
 				?>
             </div>
-            
+
             <div id="kontext1" >
 
 <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
@@ -208,7 +208,7 @@ if($_SESSION['user'] !== "Administrator")
 <a href="logged_in.php">повернутся в аккаунт</a>
 		 </div>
        </div>
-       
+
        <div class="clear">
            <div id="foot">
            "Санаторій-профілакторій "Супутник" © 2012&nbsp; | &nbsp;
@@ -217,6 +217,6 @@ if($_SESSION['user'] !== "Administrator")
      </div>
   	<!---->
 
-	
+
 </body>
 </html>

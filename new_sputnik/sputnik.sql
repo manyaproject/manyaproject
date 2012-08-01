@@ -163,6 +163,7 @@ CREATE TABLE `travel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `check_in` int(11) NOT NULL,
   `check_out` int(11) NOT NULL,
+  `deleted` int(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=cp1251;
 
