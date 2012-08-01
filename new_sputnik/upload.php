@@ -31,10 +31,10 @@ $list = scandir("./uploads");
 				//Add uploaded file to list
 				if(response==="success"){
 					$('<li></li>').appendTo('#files').html('<img src="./uploads/'+file+'" alt="" /><br />'+file).addClass('success');
-				} 
+				}
 				else if(response === "errorSize")
 				{
-					$("<li></li>").appendTo("#files").text("Ви намагаєтесь загрузити занадто широкий файл. Будь-ласка обробіть картинку, щоб вона мала не більше, ніж 729px в ширину");
+					$("<li></li>").appendTo("#files").text("Ви намагаєтесь загрузити занадто широкий файл. Будь-ласка обробіть картинку, щоб вона мала не більше, ніж 350px в ширину");
 				}
 				else
 				{
