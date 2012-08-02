@@ -138,7 +138,8 @@ include_once 'chat.php';
 <?php if(isset($_SESSION['user'])){ ?>
 <form action="<?=$_SERVER['PHP_SELF']?>" method="post" id="chatForm">
 <p><b>Введіть ваш коментарій</b><br/></p>
-<textarea class="textarea_chat" cols="81" rows="8" name="message" id="chatMessage"></textarea><br/>
+<p style="color: black" id="countSymbols"></p>
+<textarea class="textarea_chat" cols="81" rows="8" name="message" onkeyup="checkLength()" id="chatMessage"></textarea><br/>
 <p style="display: none" id="chatError">Ви не написали повідомлення</p>
 <input type="button" value="Додати" onClick="chatValidate()"/>
 </form>
