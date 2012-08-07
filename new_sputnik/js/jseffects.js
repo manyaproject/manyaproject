@@ -100,3 +100,48 @@ function chatValidate()
 		$("#chatError").css("display", "block");
 	else $("#chatForm").submit();
 }
+function checkLength()
+{
+	var len = 240 - $("#chatMessage").val().length;
+	var text = $("#chatMessage").val();
+	if(text.length > 240)
+	{
+		$("#chatMessage").val(text.substr(0, 240));
+		$("#countSymbols").text("У Вас не залишилось символів");
+	}
+	else
+	{
+		$("#countSymbols").text("У Вас залишилось " + len + " символів");
+		$("#chatMessage").val(text);
+	}
+}
+function checkLengthTitle()
+{
+	var len = 100 - $("#newsTitle").val().length;
+	var text = $("#newsTitle").val();
+	if(text.length > 100)
+	{
+		$("#newsTitle").val(text.substr(0, 100));
+		$("#countSymbolsTitle").text("У Вас не залишилось символів");
+	}
+	else
+	{
+		$("#countSymbolsTitle").text("У Вас залишилось " + len + " символів");
+		$("#newsTitle").val(text);
+	}
+}
+function checkLengthBody()
+{
+	var len = 2000 - $("#newsBody").val().length;
+	var text = $("#newsBody").val();
+	if(text.length > 2000)
+	{
+		$("#newsBody").val(text.substr(0, 2000));
+		$("#countSymbolsBody").text("У Вас не залишилось символів");
+	}
+	else
+	{
+		$("#countSymbolsBody").text("У Вас залишилось " + len + " символів");
+		$("#newsBody").val(text);
+	}
+}

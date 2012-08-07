@@ -118,40 +118,41 @@ if(isset($_GET['user']))
             </div>
 
             <div id="kontext1" >
-				<?php if(isset($_SESSION['user'])){ ?>
-                <p>Ви зайшли під користувачем: <?=$_SESSION['user']?></p>
-                <?php
-                }
-                if($_SESSION['user'] !== 'Administrator')
-                {
-                    mysql_connect(DB_HOST, DB_USER, DB_PASS);
-                    mysql_select_db(DB_NAME);
-                    mysql_query("SET NAMES cp1251");
-                    $year = mktime(0, 0, 0, 0, 0, date("Y"));
-                mysql_close();
-                
-                }
-                
-                
-                include_once 'chat.php';
-                ?>
-                <?php if(isset($_SESSION['user'])){ ?>
-                <form action="<?=$_SERVER['PHP_SELF']?>" method="post" id="chatForm">
-                <p><b>Введіть ваш коментарій</b><br/></p>
-                <textarea class="textarea_chat" cols="81" rows="8" name="message" id="chatMessage"></textarea><br/>
-                <p style="display: none" id="chatError">Ви не написали повідомлення</p>
-                <input type="button" value="Додати" onClick="chatValidate()"/>
-                </form>
-                <?php
-                }
-                if($_SESSION['amountPages'] > 1)
-                for($i = 1; $i <= $_SESSION['amountPages']; $i++)
-                {
-                    echo "<a href='logged_in.php?page=$i'> $i </a> ";
-                }
-                ?>
+<?php if(isset($_SESSION['user'])){ ?>
+<p>Ви зайшли під користувачем: <?=$_SESSION['user']?></p>
+<?php
+}
+if($_SESSION['user'] !== 'Administrator')
+{
+	mysql_connect(DB_HOST, DB_USER, DB_PASS);
+	mysql_select_db(DB_NAME);
+	mysql_query("SET NAMES cp1251");
+	$year = mktime(0, 0, 0, 0, 0, date("Y"));
+mysql_close();
 
-			</div>
+}
+
+
+include_once 'chat.php';
+?>
+<?php if(isset($_SESSION['user'])){ ?>
+<form action="<?=$_SERVER['PHP_SELF']?>" method="post" id="chatForm">
+<p><b>Введіть ваш коментарій</b><br/></p>
+<p style="color: black" id="countSymbols"></p>
+<textarea class="textarea_chat" cols="81" rows="8" name="message" onkeyup="checkLength()" id="chatMessage"></textarea><br/>
+<p style="display: none" id="chatError">Ви не написали повідомлення</p>
+<input type="button" value="Додати" onClick="chatValidate()"/>
+</form>
+<?php
+}
+if($_SESSION['amountPages'] > 1)
+for($i = 1; $i <= $_SESSION['amountPages']; $i++)
+{
+	echo "<a href='logged_in.php?page=$i'> $i </a> ";
+}
+?>
+
+</div>
        </div>
 
        <div class="clear">

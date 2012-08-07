@@ -137,10 +137,11 @@ p {
 	border: 2px solid #FBE7B5; 
 	width: 650px;
 	text-indent: 3px;
-	padding: 10px;
-	margin-top: 20px;
-	margin-bottom: 15px;
-	background-color: #FEFBF3;
+	padding: 10px 0;
+	margin: 20px 50px 15px 40px;
+/*	margin-top: 20px;
+	margin-bottom: 15px;*/
+	background-image:url(../images/shot_news_focus.png);
 	color: #3F3B99;
 	}
 	
@@ -153,4 +154,42 @@ p {
 .textarea_chat:focus {
 	border: 2px solid #009933;
 	background-color: #FEFBF3;
+	}
+	
+/*.input {
+	border: 2px solid #FBE7B5;
+	height: 30px;
+	width: 650px;
+	font:14px Arial;
+	background-image:url(../images/shot_news.png);
+	background-repeat: repeat-x;
+	background-repeat: repeat-y;
+	line-height: 17px;
+	padding: 0px;
+	margin: 0px 15px 5px 40px;
+	}*/
+	
+.input:focus {
+	border: 2px solid #C6F0B9;
+	background:none;
+	/*background-color:#FFF;*/
+	background-image:url(../images/shot_news_focus.png);
+	background-repeat: repeat-y
+	}
+	
+.textarea_news {
+	font: normal 14px Arial;
+	width: 650px;
+	border: 2px solid #FBE7B5;
+	margin: 5px 15px 5px 40px;
+	background-image:url(../images/shot_news.png);
+	background-repeat: repeat-y;
+	}
+
+.textarea_news:focus {
+	background-color:#0C9;
+	/*background-image:url(../images/shot_news_focus.png);*/
+	background-repeat: repeat-y;
+	background:none;
+	border: 2px solid #C6F0B9;
 	}
