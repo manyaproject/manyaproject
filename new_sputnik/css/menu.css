@@ -12,6 +12,7 @@ margin: 0px;     /* øèðèíà îòñòóïîâ */
 
 *html #coolmenu {
 width: 150px;    /* øèðèíà ìåíþ äëÿ IE */
+height: 86px;
 }
 
 #coolmenu a{
@@ -87,8 +88,8 @@ ul.dropdown ul {
 }
 
 ul.dropdown ul li {
-	float: none;
-	/*background-image: img/novigation.jpg;*/
+	/*float: none;*/																				/*РАСКОМЕНТИРОВАТЬ*/
+	/*background-image: img/novigation.jpg; */															/*ЗАКОМЕНТИРОВАТЬ*/
 	/*background-color:#09612b				/* ïðîâåðèòü äëÿ ãîðèçîíòàëüíîé*/
 	}
 

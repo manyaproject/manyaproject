@@ -118,8 +118,9 @@ if(isset($_GET['user']))
             </div>
 
             <div id="kontext1" >
+            <p class="warning">Увага! Лише зареєстровані користувачі можуть залишати повідомлення.</p>
 <?php if(isset($_SESSION['user'])){ ?>
-<p>Ви зайшли під користувачем: <?=$_SESSION['user']?></p>
+<p class="grafik">Ви зайшли під користувачем: <?=$_SESSION['user']?></p>
 <?php
 }
 if($_SESSION['user'] !== 'Administrator')
@@ -138,8 +139,8 @@ include_once 'chat.php';
 <?php if(isset($_SESSION['user'])){ ?>
 <form action="<?=$_SERVER['PHP_SELF']?>" method="post" id="chatForm">
 <p><b>Введіть ваш коментарій</b><br/></p>
-<p style="color: black" id="countSymbols"></p>
-<textarea class="textarea_chat" cols="81" rows="8" name="message" onkeyup="checkLength()" id="chatMessage"></textarea><br/>
+<p class="amount_symbol" id="countSymbols"></p>
+<textarea class="textarea_chat" cols="81" rows="8" name="message" onKeyUp="checkLength()" id="chatMessage"></textarea><br/>
 <p style="display: none" id="chatError">Ви не написали повідомлення</p>
 <input type="button" value="Додати" onClick="chatValidate()"/>
 </form>

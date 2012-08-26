@@ -37,12 +37,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["title"]) and isset($_P
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <link href="css/menu.css" type="text/css" rel="stylesheet">
 <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
+<script src="js/equalHeight.js" type="text/javascript"> </script>
 <script src="js/jseffects.js" type="text/javascript"> </script>
 
 </head>
 <body>
 	<div id="main">
        <div id="head">
+       <p class="forum"><a href="logged_in.php"></a></p>
        </div>
 
        <div id="nov">
@@ -69,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["title"]) and isset($_P
 					if($newsList['deleted'] == 1) continue;
 				?>
 				<hr/>
-				<p>Дата написання новини: <?=date('F j, Y, H:i:s', $newsList['date'])?></p>
+				<p class="grafik">Дата написання новини: <?=date('F j, Y, H:i:s', $newsList['date'])?></p>
 				<?php
 					if($_SESSION['user'] === "Administrator") echo "<a href='news.php?&deleted=". $newsList['id'] ."'>Видалити повідомлення</a><br/>";
 				if(isset($sqlQuery) and $newsList['id'] == $_GET['new'])
@@ -77,8 +79,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["title"]) and isset($_P
 					while($news = mysql_fetch_assoc($sqlBody))
 					{
 				?>
-					<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> 
-					<?php
+					<!--<p>Повідомлення: </p><bt/>-->
+                    <p style="border: 1px solid blue; width: 250; height: 100"> 
+                    <?php
 					
 					$body = explode("::", $news['body']);
 					for($i = 0; $i < count($body); $i++)
@@ -104,13 +107,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["title"]) and isset($_P
 							echo "<img src='uploads/". $body[$i] ."'/>";
 						}
 					}
-					?><p><a href="news.php?&title=<?=$news['id']?>"> Звернути </a></p></p>
+					?>
+                    <p class="detal"><a href="news.php?&title=<?=$news['id']?>"> Звернути </a></p></p>
 				<?php
 					}
 					continue;
 				}
 				?>
-					<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 250; height: 100"> <a class="link" href="news.php?&new=<?=$newsList['id']?>"><?=$newsList['title']?> </a></p>
+					<p></p><bt/><p class="messenger"> <a class="link" href="news.php?&new=<?=$newsList['id']?>"><?=$newsList['title']?> </a></p>
 				<?php
 				}
 				mysql_close();
@@ -118,14 +122,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["title"]) and isset($_P
 					{
 				?>
 				<form action="<?=$_SERVER['PHP_SELF']?>" method="post" id="newsForm">
-				<p style="color: black" id="countSymbolsTitle"></p>
-				Введіть коротке повідомлення: <input type="text" name="title" id="newsTitle" onkeyup="checkLengthTitle()"><br/>
+				
+				Введіть коротке повідомлення: 
+                <p class="amount_symbol" id="countSymbolsTitle"></p>
+                <input class="news" type="text" name="title" id="newsTitle" onkeyup="checkLengthTitle()"><br/>
 				<p style='display: none' id="newsTitleError">Ви не заповнили поле "Коротке повідомлення"</p>
-				<p style="color: black" id="countSymbolsBody"></p>
-				Введіть повідомлення: <textarea cols="30" rows="8" name="message" id="newsBody" onkeyup="checkLengthBody()"></textarea><br/>
+				
+				Введіть повідомлення: 
+                <p class="amount_symbol" id="countSymbolsBody"></p>
+                <textarea class="textarea_news" name="message" id="newsBody" onkeyup="checkLengthBody()"></textarea><br/>
 				<p style='display: none' id="newsBodyError">Ви не заповнили поле "Повідомлення"</p>
-				<input type="button" value="додати" onclick="newsValidation()"/>
-				<a href="upload.php">Загрузити фотографії на сервер</a>
+				<a href="upload.php" target="_blank">Загрузити фотографії на сервер</a>
+                <p><input type="button" value="додати" onclick="newsValidation()"/></p>
 				<?php } ?>
             </div>
 

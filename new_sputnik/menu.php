@@ -1,5 +1,5 @@
-<td valign="top" background= "img/novigation.jpg" height="78" colspan="2">
-<div id="coolmenu" align="center">
+<!--<td valign="top" background= "img/novigation.jpg" height="78" colspan="2">-->
+	<div id="coolmenu" align="center">
 		   <ul class="dropdown">
              
            		<li><a href="index.php"><i>Головна</i></a></li>
@@ -13,8 +13,8 @@
                 <li ><a href="news.php"><em><strong>Новини</strong></em></a></li>
                 <li ><a href="photo.php"><em><strong>Фотогалерея</strong></em></a></li>
                 
-     </div> 
-            </ul>
+              </ul>
+        </div> 
            
  </td>
 

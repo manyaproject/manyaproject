@@ -19,6 +19,7 @@ if(isset($_GET["id"]))
 <title>Spuntik-головна</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <link href="css/menu.css" type="text/css" rel="stylesheet">
+<link href="css/style_form.css" type="text/css" rel="stylesheet">
 <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
 <script src="js/equalHeight.js" type="text/javascript"> </script>
 </head>
@@ -44,28 +45,30 @@ if(isset($_GET["id"]))
             </div>
             
             <div id="kontext1" >
-            <p>графік заїздів</p> 
-       
-        <?php
-		$sql = mysql_query("select * from travel") or die(mysql_error());
-		while($travels = mysql_fetch_assoc($sql))
-		{
-			if($travels["deleted"] == 1) continue;
-		?>
-		<p class="grafik"> 
-		<?php 
-		echo 'заїзд №: '.$travels['id'] ;
-		echo "  ". date('m.d.Y', $travels['check_in']);
-		echo " - ". date('m.d.Y', $travels['check_out']);
-		if(isset($_SESSION["user"]) and $_SESSION["user"] == "Administrator")
-			echo "<a href='grafik.php?id=". $travels["id"] ."'>Видалити заїзд</a>";
-		?></p>
-		<?php
-		}
-		?>
+            <p class="info">Графік заїздів</p>
+                   
+                   <img class="img_l" src="images/grafic.png">
+					<?php
+                    $sql = mysql_query("select * from travel") or die(mysql_error());
+                    while($travels = mysql_fetch_assoc($sql))
+                    {
+                        if($travels["deleted"] == 1) continue;
+                    ?>
+                    <p class="grafik"> 
+                    <?php 
+                    //echo 'заїзд №: '.$travels['id'] ;
+                    echo "  ". date('m.d.Y', $travels['check_in']);
+                    echo " - ". date('m.d.Y', $travels['check_out']);
+                    if(isset($_SESSION["user"]) and $_SESSION["user"] == "Administrator")
+                        echo "<a href='grafik.php?id=". $travels["id"] ."'>  Видалити заїзд </a>";
+                    ?></p>
+                    <?php
+                    }
+                    ?>
+        
 
        
-       <p class="detal">  <a href="doc.php"> <<Повернутися назад</a>
+       				<p class="detal">  <a href="doc.php"> <<Повернутися назад</a>
        </div>
        </div>
        

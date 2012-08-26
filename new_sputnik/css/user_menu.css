@@ -2,7 +2,7 @@
 /* CSS Document */
 
 .user_menu {
-	outline: 1px solid #0F0;
+	/*outline: 1px solid #0F0;*/
 	margin: 45px auto 10px;
 	font: bold 16px Arial;
 	font-style:italic;
@@ -13,7 +13,11 @@
 .user_menu a {
 	/*padding: 15px;*/
 	/*margin: 25px auto;*/
-	outline: 1px solid #0F6;
-	color:#390;
+	/*outline: 1px solid #0F6;*/
+	color:#006;
 	text-decoration:none;
+	}
+
+.user_menu a:active {
+	color:#390;
 	}

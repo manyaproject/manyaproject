@@ -112,7 +112,7 @@ if(isset($_GET["user"]))
                         <p class="question"><label>Ваше місто:<input class="input" type="text" name="city"></label></p>
                         <p class="question"><label>Ваша адреса:<input class="input" type="text" name="address"></label></p>
                         <p class="question"><label>Ваші контакти:<input class="input" type="text" name="contact"></label></p>
-                        <p style="display: none" id="emptyFields">Ви не заповнили всі поля</p>
+                        <p class="warning" style="display: none" id="emptyFields">Ви не заповнили всі поля</p>
                         </fieldset>
                     </div>
                     	
@@ -122,13 +122,14 @@ if(isset($_GET["user"]))
                         <legend> Логін-деталі </legend>
                         <p class="question"><label>Ваш логін <font size="-4">(використовуйте лише<br>англійські літери та цифри)</font>
                         <input class="input" type="text" name="login" id="loginReg"></label></p>
-                        <p style="display: none" id="userExists">Такий логін вже використовується у системі. Будь-ласка спробуйте ще раз. </p>
-                        <p style="display: none" id="wrongUser">Ви ввели не правильне им'я користувача</p>
+                        <p class="warning" style="display: none" id="userExists">Такий логін вже використовується у системі. Будь-ласка спробуйте ще раз. </p>
+                        <p class="warning" style="display: none" id="wrongUser">Ви ввели не правильний логін користувача</p>
                         <p class="question"><label>Ваш пароль <font size="-4">(використовуйте лише<br>англійські літери та цифри).</font>
                         <input class="input" type="password" name="password" id="password"></label></p>
                         <p class="question"><label>Повторіть Ваш пароль</font>
                         <input class="input" type="password" name="passwordCopy" id="passwordCopy"></label></p>
-                        <p id="passwordError" style="display: none">Ви ввели не правильний пароль</p>
+                        <p class="warning" id="passwordError" style="display: none">Ви ввели не правильний пароль</p>
+                        <!--<p class="warning" id="shotPassword" style="display: none">пароль короткий</p>-->
                         </fieldset>
                      </div>
 
@@ -201,7 +202,7 @@ if(isset($_GET["user"]))
                         <p class="question"><label>Введіть число <font color="#FF0000">* </font>:
                         
                         <p> <input class="input" type='text' name='number'> </label></p><br><br>
-                        <p style="display: none"> <!--id="captcha"--> Ви ввели не правильне число</p>
+                        <p class="warning" style="display: none"> <!--id="captcha"--> Ви ввели не правильне число</p>
                         <input class="img_botton"  type="image" src="images/Button.png" name="imageButton"></p>
                         </form>
                         <?php

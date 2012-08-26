@@ -90,8 +90,8 @@ while($chatList = mysql_fetch_assoc($chatListQuery))
 	if($chatList['deleted'] == 0) continue;
 ?>
 <hr/>
-<p>Користувач: <?=$chatList['user']?></p>
-<p>Дата написання повідомлення: <?=date('F j, Y, H:i:s', $chatList['date'])?></p>
+<p class="grafik">Користувач: <?=$chatList['user']?></p>
+<p class="grafik">Дата написання повідомлення: <?=date('F j, Y, H:i:s', $chatList['date'])?></p>
 <?php if($_SESSION['user'] === "Administrator") echo "<a href='trash.php?&id=". $chatList['id'] ."'>Відновити повідомлення</a><br/>";?>
 <?php
 //echo "id = ". $_GET['id'];
@@ -104,7 +104,7 @@ if($_SESSION['user'] === "Administrator")
 ?>
 
 </form>
-<p>Повідомлення: </p><bt/><p style="border: 1px solid blue; width: 240; height: 100"> <?=$chatList['message']?> </p>
+<p class="grafik">Повідомлення: </p><bt/><p class="messenger"> <?=$chatList['message']?> </p>
 <?php
 }
 $sqlNews = "select id, title from news where deleted=1";

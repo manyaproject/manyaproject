@@ -5,22 +5,27 @@ header("Content-Type: text/html; charset=UTF-8");
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
+<script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
+<script src="js/equalHeight.js" type="text/javascript"> </script>
 
-<script src="js/prototype.js" type="text/javascript"> </script>
-<script src="js/scriptaculous.js" type="text/javascript"></script>
-<script src="js/lightbox.js" type="text/javascript"></script>
-
+<script src="js/prototype.js" type="text/javascript"></script>
+<script src="js/scriptaculous.js" type="text/javascript"> </script>
+<script src="js/lightbox.js" type="text/javascript"> </script>
 <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen"/>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--<script src="js/prototype.js" type="text/javascript"> </script>
+<script src="js/scriptaculous.js" type="text/javascript"></script>
+<script src="js/lightbox.js" type="text/javascript"></script>-->
+
+<!--<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen"/>-->
 
 <title>Spuntik-головна</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <link href="css/menu.css" type="text/css" rel="stylesheet">
 <link href="css/photo.css" type="text/css" rel="stylesheet">
 
-<script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
-<script src="js/equalHeight.js" type="text/javascript"> </script>
 </head>
 <body>
 	<div id="main">
@@ -46,8 +51,14 @@ header("Content-Type: text/html; charset=UTF-8");
             <div id="kontext1" >
       
 			  <div id="contentP">
-					<div >
-						<p>
+					<!--<div class="photoGallery">-->
+                    	<p>
+                        <!--<a href="images/Veluka.jpg" rel="lightbox[group]" title="">
+                        	<img src="images/Veluka.jpg" height="165" width="115px" alt=""></a>
+                            
+                        <a href="images/DSC01735.JPG" rel="lightbox[group]" title="">
+                        	<img src="images/DSC01735.JPG" height="115px" width="165px" alt=""></a>
+                        </p>  -->  
                         <a href="images/Veluka.jpg" rel="lightbox[group]" title="Головний лікар">
 							<img src="images/Veluka.jpg" height="165px" width="115px" alt=""></a>
 						
@@ -59,7 +70,8 @@ header("Content-Type: text/html; charset=UTF-8");
 						
 						<a href="images/DSC01749.jpg" rel="lightbox[group]" title="">
 							<img src="images/DSC01749.jpg" height="115px" width="165px" alt=""></a>
-						<p>
+						</p>
+                        <p>
 						<a href="images/DSC01750.jpg" rel="lightbox[group]" title="">
 							<img src="images/DSC01750.jpg" height="115px" width="165px" alt=""></a>
 							
@@ -71,7 +83,8 @@ header("Content-Type: text/html; charset=UTF-8");
 						
 						<a href="images/DSC01759.jpg" rel="lightbox[group]" title="">
 							<img src="images/DSC01759.jpg" height="115px" width="165px" alt=""></a>
-						<p>
+						</p>
+                        <p>
 						<a href="images/DSC01766.jpg" rel="lightbox[group]" title="">
 							<img src="images/DSC01766.jpg" height="115px" width="165px" alt=""></a>
 						
@@ -83,7 +96,8 @@ header("Content-Type: text/html; charset=UTF-8");
 						
 						<a href="images/DSC01787.jpg" rel="lightbox[group]" title="">
 							<img src="images/DSC01787.jpg" height="115px" width="165px" alt=""></a>
-						<p>
+						</p>
+                        <p>
 						<a href="images/DSC01790.jpg" rel="lightbox[group]" title="">
 							<img src="images/DSC01790.jpg" height="115px" width="165px" alt=""></a>
 						
@@ -95,7 +109,8 @@ header("Content-Type: text/html; charset=UTF-8");
 						
 						<a href="images/DSC01797.jpg" rel="lightbox[group]" title="">
 							<img src="images/DSC01797.jpg" height="115px" width="165px" alt=""></a>
-						<p>
+						</p>
+                        <p>
 						<a href="images/DSC01811.jpg" rel="lightbox[group]" title="">
 							<img src="images/DSC01811.jpg" height="115px" width="165px" alt=""></a>
 						
@@ -107,6 +122,7 @@ header("Content-Type: text/html; charset=UTF-8");
 						
 						<a href="images/DSC01849.jpg" rel="lightbox[group]" title="">
 							<img src="images/DSC01849.jpg" height="115px" width="165px" alt=""></a>
+                        </p>
 						<p>
 						<a href="images/DSC01860.jpg" rel="lightbox[group]" title="">
 							<img src="images/DSC01860.jpg" height="115px" width="165px" alt=""></a>
@@ -119,10 +135,9 @@ header("Content-Type: text/html; charset=UTF-8");
 						
 						<a href="images/DSC01893.jpg" rel="lightbox[group]" title="">
 							<img src="images/DSC01893.jpg" height="115px" width="165px" alt=""></a>
-
-					</div>
-				</div>
-      
+						</p>
+					<!--</div>-->
+      			</div>
       
 			</div>
        </div>

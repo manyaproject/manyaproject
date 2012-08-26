@@ -6,9 +6,9 @@ padding:0;
 }
 
 
-p {
+p, ol, ol.li {
 	/*width: 750px;*/
-	margin: 0 auto;
+	margin: 5px auto;
 	color:#020C30;
 	font:normal 16px Arial;
 /*	font-weight:bold;*/
@@ -17,6 +17,13 @@ p {
 	/*white-space:pre-wrap;*/
 	word-wrap: break-word;
 }
+
+.info {
+	font: bold italic 22px Arial, Helvetica, sans-serif;
+	text-align: center;
+	margin: 15px auto 35px;
+	color:#006;
+	}
 
 #main {
 	margin: 0 auto;
@@ -30,7 +37,7 @@ p {
 	margin: 0 auto;
 	padding:0;
 	background-image:url(../images/head.gif);
-	outline: 1px solid #F00;
+/*	outline: 1px solid #F00;*/
 	}
 
 
@@ -59,7 +66,7 @@ p {
 	padding:0;
 	width: 1052px;
 	height: 86px;
-	outline: 1px solid #111111;
+/*	outline: 1px solid #111111;*/
 	background-image:url(../images/novig.png);
 	background-repeat:no-repeat;
 	}
@@ -68,14 +75,14 @@ p {
 	margin: 0 auto;
 	width: 1052px;
 	background-image: url(../images/kont.png);
-	outline: 1px solid #399;
+	/*outline: 1px solid #399;*/
 	}
 
 #kontext1{
 	width: 750px;
 	margin: 0 5px 0 45px;
 	padding:10px 0 10px 0;
-	outline: 1px solid #C69;
+	/*outline: 1px solid #C69;*/
 	}	
 
 /*	outline: 1px solid #C69;*/
@@ -86,7 +93,8 @@ p {
 	text-align:right;
 	font:normal 14px Arial;
 	font-style:italic;
-	padding: 5px 15px;
+	padding: 0px 15px;
+	margin-bottom: 20px;
 	}
 
 #login {
@@ -98,7 +106,7 @@ p {
 	background-repeat:no-repeat;
 	padding: 0px 0 0 0;
 	margin: 0px 35px 0 0px;
-	outline: 1px solid #111111;
+	/*outline: 1px solid #111111;*/
 	}
 
 #imgLogin {
@@ -130,10 +138,11 @@ p {
 
 .imgInfo {
 	float:left;
-	margin: 5px 5px;
+	margin: 5px 5px 5px 15px;
 	}
 
 .messenger {
+	font:normal 12px Arial;
 	border: 2px solid #FBE7B5; 
 	width: 650px;
 	text-indent: 3px;
@@ -156,7 +165,7 @@ p {
 	background-color: #FEFBF3;
 	}
 	
-/*.input {
+.news {
 	border: 2px solid #FBE7B5;
 	height: 30px;
 	width: 650px;
@@ -167,9 +176,9 @@ p {
 	line-height: 17px;
 	padding: 0px;
 	margin: 0px 15px 5px 40px;
-	}*/
+	}
 	
-.input:focus {
+.news:focus {
 	border: 2px solid #C6F0B9;
 	background:none;
 	/*background-color:#FFF;*/
@@ -184,12 +193,23 @@ p {
 	margin: 5px 15px 5px 40px;
 	background-image:url(../images/shot_news.png);
 	background-repeat: repeat-y;
+	height:300px;
 	}
 
 .textarea_news:focus {
 	background-color:#0C9;
-	/*background-image:url(../images/shot_news_focus.png);*/
+	background-image:url(../images/shot_news_focus.png);
 	background-repeat: repeat-y;
 	background:none;
 	border: 2px solid #C6F0B9;
+	}
+	
+.warning {
+	color:#F76F86;
+	font: normal 14px Arial, Helvetica, sans-serif;
+	}
+	
+.amount_symbol {
+	color: #FAA0B0;
+	font: normal 14px Arial, Helvetica, sans-serif;
 	}

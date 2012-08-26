@@ -84,7 +84,7 @@ if(isset($_GET['user']))
 	<p id="errorLogin" style="display: none">Такого користувача не існує. Будь ласка зареєструйтесь</p>
     
     <br>пароль<br><input type="password" name="password" id="pass">
-	<p id="errorPass" style="display: none">Не правильний пароль. Будь ласка спробуйте ще раз</p>
+	<p class="warning" id="errorPass" style="display: none">Не правильний пароль. Будь ласка спробуйте ще раз</p>
    
 </div>
 <input type="submit" value="Вхід"/>

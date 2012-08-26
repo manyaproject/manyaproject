@@ -18,6 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 <html>
 <head>
 <link href="css/user_menu.css" type="text/css" rel="stylesheet">
+<link href="css/style.css" type="text/css" rel="stylesheet">
 
 <?php
 //if(isset($_SESSION['user']))
@@ -32,11 +33,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 //		echo "Показати<a href='trash.php'>Кошик</a> <br/>";
 //	}
 ?>
-<script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
+<!--<script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
 <script src="js/jquery.form.js" type="text/javascript"> </script>
 <script src="js/jseffects.js" type="text/javascript"> </script>
 </head>
-<body>
+<body>-->
 <p class="user_menu">
 <?php
 if(isset($_SESSION['user']))
@@ -51,17 +52,18 @@ if($_SESSION['user'] === "Administrator")
 		echo "<a href='trash.php'>Кошик</a> <br/>";
 	}
 ?>
+</p>
 <script src="js/jquery-1.5.min.js" type="text/javascript"> </script>
 <script src="js/jquery.form.js" type="text/javascript"> </script>
 <script src="js/jseffects.js" type="text/javascript"> </script>
 </head>
 <body>
-<form action="userMenu.php" id="changePass" method="post">
+<form class="grafik" action="userMenu.php" id="changePass" method="post">
 Введіть новий пароль<input type="text" id="newPass" name="newPass"/>
-<p style="display:none" id="wrongPass">Ви ввели не правильний пароль. Пароль повинен містити лише латинські букви та цифри та знак:"_"</p>
+<p class="warning" style="display:none" id="wrongPass">Ви ввели не правильний пароль. Пароль повинен містити лише латинські букви та цифри та знак:"_"</p>
 Повторіть новий пароль <input type="text" id="newPassRepeat" name="newPassRepeat"/>
-<p style="display:none" id="changePassError">Ви ввели не правильний пароль. Будь ласка спробуйте ще раз</p>
-<input type="button" value="Змінити" onclick="checkPass()">
+<p class="warning" style="display:none" id="changePassError">Ви ввели не правильний пароль. Будь ласка спробуйте ще раз</p>
+<input type="button" value="Змінити" onClick="checkPass()">
 </form>
 </body>
 </html>
